@@ -3,3 +3,4 @@ node_modules
 *.pdf
 *.zip
 *.config
+prepros-6.config
