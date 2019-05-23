@@ -18,20 +18,36 @@ myApp.getGenres = function() {
 
 myApp.getMovies = function(e) {
     e.preventDefault();
+
+    const year = new Date().getFullYear()
+    const month = new Date().getMonth() + 1
+    const day = new Date().getDate()
+
+    const todaysDate = `${year}-${month}-${day}`
+    console.log(todaysDate)
     $.ajax({
         url: 'https://api.themoviedb.org/3/discover/movie',
         method: 'GET',
         dataType: 'json',
         data: {
             api_key: myApp.key,
-            with_genres: $('#genre').val()
+            with_genres: $('#genre').val(),
+            primary_release_date: todaysDate
         }
     }).then(function (response) {
         myApp.movieArray = response.results
         randomNumber = Math.floor((Math.random() * 19))
         console.log(myApp.movieArray[randomNumber]);
-        console.log(myApp.movieArray);
-        $('img').attr('src', `https://image.tmdb.org/t/p/w600_and_h900_bestv2/${myApp.movieArray[randomNumber].poster_path}`)
+        // console.log(myApp.movieArray);
+        $('img').attr({
+            src: `https://image.tmdb.org/t/p/w600_and_h900_bestv2/${myApp.movieArray[randomNumber].poster_path}`,
+            alt: `Movie poster for ${myApp.movieArray[randomNumber].title}`
+        })
+        $('.movieTitle').text(myApp.movieArray[randomNumber].title)
+        $('.movieYear').text(myApp.movieArray[randomNumber].release_date.slice(0, 4))
+        $('#resultOverview').text(myApp.movieArray[randomNumber].overview)
+        $('#resultLanguage').text(myApp.movieArray[randomNumber].original_language)
+        $('#resultRating').text(myApp.movieArray[randomNumber].vote_average)
     })
 }
 
