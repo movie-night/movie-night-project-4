@@ -171,3 +171,23 @@ template {
   content: ' ';
   clear: both;
   height: 0; }
+
+/*  BASE STYLES */
+html {
+  font: 125% "Overpass", sans-serif;
+  background-color: #444;
+  color: #fff; }
+
+body {
+  font-size: 1rem; }
+
+h1, h2, h3, h4, h5, h6, main, article, section, footer {
+  /* RESET  */
+  margin: 0;
+  padding: 0; }
+
+h1 {
+  font-family: "Baloo Bhai", cursive; }
+
+.wrapper {
+  margin: 0 auto; }

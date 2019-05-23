@@ -10,7 +10,6 @@
   <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai|Overpass&display=swap" rel="stylesheet">
   <title>Movie Night</title>
 </head>
-
 <body>
   <header>
     <h1>Movie Night</h1>
@@ -42,16 +41,38 @@
           <div class="poster">
             <img src="" alt="">
           </div>
-          <div class="movieinfo">
-            
+          <div class="movieHeaders">
+            <h2 class="movieTitle"></h2>
+            <h4 class="movieYear"></h4>
+          </div>
+          <div class="movieInfo">
+            <div class="infoBlock">
+              <h5>Genres:</h5>
+              <p id="resultGenre"></p>
+            </div>
+            <div class="infoBlock">
+              <h5>Synopsis:</h5>
+              <p id="resultOverview"></p>
+            </div>
+            <div class="infoBlock">
+              <h5>Original language:</h5>
+              <p class="" id="resultLanguage"></p>
+            </div>
+            <div class="infoBlock">
+              <h5>Rating:</h5>
+              <p class="" id="resultRating"></p>
+            </div>
           </div>
         </div>
-
+        <a href="#" class="resultButton anotherMovie" id="resultAnotherButton">Another</button>
+        <a href="#" class="resultButton newSearch" id="resultNewButton">New Search</button>
       </div>
     </section>
   </main>
-
-  <script src='./scripts/script.js'></script>
+<footer>
+  <h6>Copyright &copy; 2019 - Movie Night</h6>
+</footer>
 </body>
+<script src='./scripts/script.js'></script>
 
 </html>
