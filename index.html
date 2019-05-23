@@ -1,34 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="./styles/style.min.css">
+  <link rel="stylesheet" href="./styles/style.css">
   <script src='https://code.jquery.com/jquery-3.4.1.min.js'></script>
+  <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai|Overpass&display=swap" rel="stylesheet">
   <title>Movie Night</title>
 </head>
+
 <body>
+  <header>
+    <h1>Movie Night</h1>
+  </header>
   <main>
     <section class='search'>
-    <h1>Movie Night</h1>
-    <form action="">
-      <label for="genre">Genre</label>
-      <select name="genre">
-        <!-- <option value="28">Action</option>
-        <option value="action">Saab</option>
-        <option value="fiat">Fiat</option>
-        <option value="audi">Audi</option> -->
-      </select>
-       
-      <input type="radio" name="quality" value="old"> Old
-      <input type="radio" name="quality" value="new"> New
+      <div class="wrapper">
 
-    </form>
+        <form action="">
+          <label for="genre">Genre</label>
+          <select name="genre">
+            <!-- <option value="28">Action</option>
+              <option value="action">Saab</option>
+              <option value="fiat">Fiat</option>
+              <option value="audi">Audi</option> -->
+            </select>
+            
+            <input type="radio" name="quality" value="old"> Old
+            <input type="radio" name="quality" value="new"> New
+            
+          </form>
+        </div>
     </section>
     <section class='result'>
+      <div class="wrapper">
+        <div class="resultsContainer">
+          <div class="poster">
 
+          </div>
+          <div class="movieinfo">
+            
+          </div>
+        </div>
+
+      </div>
     </section>
   </main>
 </body>
+
 </html>
