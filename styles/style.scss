@@ -55,6 +55,7 @@ body {
 }
 
 img {
+  width:100%;
 }
 
 h1,
@@ -76,7 +77,7 @@ h1 {
   font-family: $balooFont;
 }
 
-h2,h3,h4,h5,h6,p,label,input, {
+h2,h3,h4,h5,h6,p,label,input {
   font-family: $overpassFont;
 }
 
@@ -110,8 +111,22 @@ label {
 
 }
 
-select {
+section {
+  opacity:1;
+  transition: opacity .5s;
+}
 
+select {
+  width: 450px;
+  height: 50px;
+  border-radius: 45px;
+  text-align: center;
+  border: none;
+  color: #fff;
+  appearance: none;
+  background-image: url('../assets/navarrow.svg'), linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5));
+  background-repeat: no-repeat;
+  background-position: calc(100% - 50px);
 }
 
 input {
@@ -120,6 +135,14 @@ input {
 
 .wrapper {
   margin: 0 auto;
+}
+
+.visiblyHidden {
+  opacity:0;
+}
+
+.removeBlock {
+  display:none;
 }
 
 /*  HEADER  */
@@ -162,23 +185,31 @@ main {
 
   }
 
-  p#resultGenre {
+  p {
 
-  }
+    #resultGenre {
 
-  p#resultOverview {
+    }
 
-  }
+    p#resultOverview {
 
-  p#resultLanguage {
+    }
 
-  }
+    p#resultLanguage {
 
-  p#resultRating {
+    }
 
+    p#resultRating {
+
+    }
   }
 
   a {
+    text-decoration: none;
+    color:inherit;
+    &:hover {
+
+    }
     .resultButton {
  
     }
@@ -191,5 +222,13 @@ main {
   }
 
   footer {
-  
+  justify-content:center;
+  background-color: $darkGrey;
+  color:#fff;
+  height:40px;
+  position:absolute;
+  bottom:0;
+  display:flex;
+  align-items:center;
+  width:100%;
   }

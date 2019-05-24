@@ -181,6 +181,9 @@ html {
 body {
   font-size: 1rem; }
 
+img {
+  width: 100%; }
+
 h1,
 h2,
 h3,
@@ -202,10 +205,59 @@ h2, h3, h4, h5, h6, p, label, input {
   font-family: "Overpass", sans-serif; }
 
 /*  COMMON OBJECTS  */
+section {
+  opacity: 1;
+  -webkit-transition: opacity .5s;
+  -o-transition: opacity .5s;
+  transition: opacity .5s; }
+
+select {
+  width: 450px;
+  height: 50px;
+  border-radius: 45px;
+  text-align: center;
+  border: none;
+  color: #fff;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url("../assets/navarrow.svg"), -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5)));
+  background-image: url("../assets/navarrow.svg"), -webkit-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  background-image: url("../assets/navarrow.svg"), -o-linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  background-image: url("../assets/navarrow.svg"), linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  background-repeat: no-repeat;
+  background-position: calc(100% - 50px); }
+
 .wrapper {
   margin: 0 auto; }
+
+.visiblyHidden {
+  opacity: 0; }
+
+.removeBlock {
+  display: none; }
 
 /*  HEADER  */
 /*  MAIN  */
 /*  SECTIONS  */
 /*  FIRST SECTION */
+a {
+  text-decoration: none;
+  color: inherit; }
+
+footer {
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background-color: #0e0e0e;
+  color: #fff;
+  height: 40px;
+  position: absolute;
+  bottom: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 100%; }
