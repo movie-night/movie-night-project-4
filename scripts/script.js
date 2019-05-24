@@ -98,7 +98,7 @@ myApp.getMovies = function (e) {
     }
 }
 
-myApp.nextMovie = function() {
+myApp.nextMovie = function () {
     if (myApp.counter === myApp.movieArray.length - 1) {
         myApp.counter = 0;
         $('img').attr({
@@ -131,22 +131,22 @@ myApp.nextMovie = function() {
         $('#resultRating').text(myApp.movieArray[myApp.counter].vote_average)
         $('#resultGenre').empty()
         myApp.movieArray[myApp.counter].genre_ids.forEach(movieGenre => {
-                for (item in myApp.genres) {
-                    if (myApp.genres[item] === movieGenre) {
-                        $('#resultGenre').append(`${item}, `)
-                    }
+            for (item in myApp.genres) {
+                if (myApp.genres[item] === movieGenre) {
+                    $('#resultGenre').append(`${item}, `)
                 }
-            });
+            }
+        });
     }
 }
 
 $(function () {
     myApp.getGenres();
-    $('#submit').on('click', function(e) {
+    $('#submit').on('click', function (e) {
         myApp.getMovies(e);
     });
 
-    $('#resultAnotherButton').on('click', function(e) {
+    $('#resultAnotherButton').on('click', function (e) {
         myApp.nextMovie();
     });
 })
