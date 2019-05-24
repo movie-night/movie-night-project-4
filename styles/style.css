@@ -261,3 +261,10 @@ footer {
   -ms-flex-align: center;
   align-items: center;
   width: 100%; }
+
+/*  ABSOLUTE OVERRIDES  */
+.capitalize {
+  text-transform: capitalize; }
+
+.upperCase {
+  text-transform: uppercase; }
