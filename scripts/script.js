@@ -1,7 +1,9 @@
 const myApp = {}
 
-myApp.key = '9c167d58adbd031f02b8a3cbcf7273c1'
+myApp.key = '9c167d58adbd031f02b8a3cbcf7273c1';
 myApp.movieArray = [];
+myApp.counter = 0;
+myApp.genres = {};
 
 myApp.getGenres = function () {
     $.ajax({
@@ -9,6 +11,7 @@ myApp.getGenres = function () {
         method: 'GET',
         dataType: 'json',
     }).then(function (response) {
+        myApp.genres = response;
         $('select').empty();
         for (item in response) {
             $('select').append(`<option value="${response[item]}">${item}</option>`);
@@ -27,7 +30,6 @@ myApp.getMovies = function (e) {
     const todaysDate = `${year}-${month}-${day}`
     const pastDate = `${oldYear}-${month}-${day}`
 
-    console.log(todaysDate)
     if ($('input[type=radio]:checked').val() === 'new') {
 
         $.ajax({
@@ -42,17 +44,24 @@ myApp.getMovies = function (e) {
             }
         }).then(function (response) {
             myApp.movieArray = response.results
-            randomNumber = Math.floor((Math.random() * response.results.length))
-            console.log(myApp.movieArray[randomNumber]);
+            myApp.counter = Math.floor((Math.random() * response.results.length))
             $('img').attr({
-                src: `https://image.tmdb.org/t/p/w600_and_h900_bestv2/${myApp.movieArray[randomNumber].poster_path}`,
-                alt: `Movie poster for ${myApp.movieArray[randomNumber].title}`
+                src: `https://image.tmdb.org/t/p/w600_and_h900_bestv2/${myApp.movieArray[myApp.counter].poster_path}`,
+                alt: `Movie poster for ${myApp.movieArray[myApp.counter].title}`
             })
-            $('.movieTitle').text(myApp.movieArray[randomNumber].title)
-            $('.movieYear').text(myApp.movieArray[randomNumber].release_date.slice(0, 4))
-            $('#resultOverview').text(myApp.movieArray[randomNumber].overview)
-            $('#resultLanguage').text(myApp.movieArray[randomNumber].original_language)
-            $('#resultRating').text(myApp.movieArray[randomNumber].vote_average)
+            $('.movieTitle').text(myApp.movieArray[myApp.counter].title)
+            $('.movieYear').text(myApp.movieArray[myApp.counter].release_date.slice(0, 4))
+            $('#resultOverview').text(myApp.movieArray[myApp.counter].overview)
+            $('#resultLanguage').text(myApp.movieArray[myApp.counter].original_language)
+            $('#resultRating').text(myApp.movieArray[myApp.counter].vote_average)
+            $('#resultGenre').empty()
+            myApp.movieArray[myApp.counter].genre_ids.forEach(movieGenre => {
+                for (item in myApp.genres) {
+                    if (myApp.genres[item] === movieGenre) {
+                        $('#resultGenre').append(`${item}, `)
+                    }
+                }
+            });
         })
     } else if ($('input[type=radio]:checked').val() === 'old') {
         $.ajax({
@@ -66,26 +75,78 @@ myApp.getMovies = function (e) {
                 'vote_average.gte': 7
             }
         }).then(function (response) {
-            console.log(response)
             myApp.movieArray = response.results
-            randomNumber = Math.floor((Math.random() * response.results.length))
-            console.log(myApp.movieArray[randomNumber]);
+            myApp.counter = Math.floor((Math.random() * response.results.length))
             $('img').attr({
-                src: `https://image.tmdb.org/t/p/w600_and_h900_bestv2/${myApp.movieArray[randomNumber].poster_path}`,
-                alt: `Movie poster for ${myApp.movieArray[randomNumber].title}`
+                src: `https://image.tmdb.org/t/p/w600_and_h900_bestv2/${myApp.movieArray[myApp.counter].poster_path}`,
+                alt: `Movie poster for ${myApp.movieArray[myApp.counter].title}`
             })
-            $('.movieTitle').text(myApp.movieArray[randomNumber].title)
-            $('.movieYear').text(myApp.movieArray[randomNumber].release_date.slice(0, 4))
-            $('#resultOverview').text(myApp.movieArray[randomNumber].overview)
-            $('#resultLanguage').text(myApp.movieArray[randomNumber].original_language)
-            $('#resultRating').text(myApp.movieArray[randomNumber].vote_average)
+            $('.movieTitle').text(myApp.movieArray[myApp.counter].title)
+            $('.movieYear').text(myApp.movieArray[myApp.counter].release_date.slice(0, 4))
+            $('#resultOverview').text(myApp.movieArray[myApp.counter].overview)
+            $('#resultLanguage').text(myApp.movieArray[myApp.counter].original_language)
+            $('#resultRating').text(myApp.movieArray[myApp.counter].vote_average)
+            $('#resultGenre').empty()
+            myApp.movieArray[myApp.counter].genre_ids.forEach(movieGenre => {
+                for (item in myApp.genres) {
+                    if (myApp.genres[item] === movieGenre) {
+                        $('#resultGenre').append(`${item}, `)
+                    }
+                }
+            });
         })
+    }
+}
+
+myApp.nextMovie = function() {
+    if (myApp.counter === myApp.movieArray.length - 1) {
+        myApp.counter = 0;
+        $('img').attr({
+            src: `https://image.tmdb.org/t/p/w600_and_h900_bestv2/${myApp.movieArray[myApp.counter].poster_path}`,
+            alt: `Movie poster for ${myApp.movieArray[myApp.counter].title}`
+        })
+        $('.movieTitle').text(myApp.movieArray[myApp.counter].title)
+        $('.movieYear').text(myApp.movieArray[myApp.counter].release_date.slice(0, 4))
+        $('#resultOverview').text(myApp.movieArray[myApp.counter].overview)
+        $('#resultLanguage').text(myApp.movieArray[myApp.counter].original_language)
+        $('#resultRating').text(myApp.movieArray[myApp.counter].vote_average)
+        $('#resultGenre').empty()
+        myApp.movieArray[myApp.counter].genre_ids.forEach(movieGenre => {
+            for (item in myApp.genres) {
+                if (myApp.genres[item] === movieGenre) {
+                    $('#resultGenre').append(`${item}, `)
+                }
+            }
+        });
+    } else {
+        myApp.counter++
+        $('img').attr({
+            src: `https://image.tmdb.org/t/p/w600_and_h900_bestv2/${myApp.movieArray[myApp.counter].poster_path}`,
+            alt: `Movie poster for ${myApp.movieArray[myApp.counter].title}`
+        })
+        $('.movieTitle').text(myApp.movieArray[myApp.counter].title)
+        $('.movieYear').text(myApp.movieArray[myApp.counter].release_date.slice(0, 4))
+        $('#resultOverview').text(myApp.movieArray[myApp.counter].overview)
+        $('#resultLanguage').text(myApp.movieArray[myApp.counter].original_language)
+        $('#resultRating').text(myApp.movieArray[myApp.counter].vote_average)
+        $('#resultGenre').empty()
+        myApp.movieArray[myApp.counter].genre_ids.forEach(movieGenre => {
+                for (item in myApp.genres) {
+                    if (myApp.genres[item] === movieGenre) {
+                        $('#resultGenre').append(`${item}, `)
+                    }
+                }
+            });
     }
 }
 
 $(function () {
     myApp.getGenres();
-    $('#submit').on('click', function (e) {
+    $('#submit').on('click', function(e) {
         myApp.getMovies(e);
+    });
+
+    $('#resultAnotherButton').on('click', function(e) {
+        myApp.nextMovie();
     });
 })
