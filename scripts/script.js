@@ -19,6 +19,30 @@ myApp.getGenres = function () {
     })
 }
 
+myApp.listGenres = function(data, index) {
+    $('#resultGenre').empty()
+    data[index].genre_ids.forEach(movieGenre => {
+        for (item in myApp.genres) {
+            if (myApp.genres[item] === movieGenre) {
+                $('#resultGenre').append(`<span class='capitalize'>${item}, </span>`)
+            }
+        }
+    });
+}
+
+myApp.diplayMovieInfo = function(data, index) {
+    $('img').attr({
+        src: `https://image.tmdb.org/t/p/w600_and_h900_bestv2/${data[index].poster_path}`,
+        alt: `Movie poster for ${data[index].title}`
+    })
+    $('.movieTitle').text(data[index].title)
+    $('.movieYear').text(data[index].release_date.slice(0, 4))
+    $('#resultOverview').text(data[index].overview)
+    $('#resultLanguage').html(`<span class='upperCase'>${data[index].original_language}</span>`)
+    $('#resultRating').text(data[index].vote_average)
+    myApp.listGenres(data, index)
+}
+
 myApp.getMovies = function (e) {
     e.preventDefault();
 
@@ -30,8 +54,7 @@ myApp.getMovies = function (e) {
     const todaysDate = `${year}-${month}-${day}`
     const pastDate = `${oldYear}-${month}-${day}`
 
-    if ($('input[type=radio]:checked').val() === 'new') {
-
+    if ($('#age').is(':checked')) {
         $.ajax({
             url: 'https://api.themoviedb.org/3/discover/movie',
             method: 'GET',
@@ -45,25 +68,9 @@ myApp.getMovies = function (e) {
         }).then(function (response) {
             myApp.movieArray = response.results
             myApp.counter = Math.floor((Math.random() * response.results.length))
-            $('img').attr({
-                src: `https://image.tmdb.org/t/p/w600_and_h900_bestv2/${myApp.movieArray[myApp.counter].poster_path}`,
-                alt: `Movie poster for ${myApp.movieArray[myApp.counter].title}`
-            })
-            $('.movieTitle').text(myApp.movieArray[myApp.counter].title)
-            $('.movieYear').text(myApp.movieArray[myApp.counter].release_date.slice(0, 4))
-            $('#resultOverview').text(myApp.movieArray[myApp.counter].overview)
-            $('#resultLanguage').text(myApp.movieArray[myApp.counter].original_language)
-            $('#resultRating').text(myApp.movieArray[myApp.counter].vote_average)
-            $('#resultGenre').empty()
-            myApp.movieArray[myApp.counter].genre_ids.forEach(movieGenre => {
-                for (item in myApp.genres) {
-                    if (myApp.genres[item] === movieGenre) {
-                        $('#resultGenre').append(`${item}, `)
-                    }
-                }
-            });
+            myApp.diplayMovieInfo(response.results, myApp.counter)
         })
-    } else if ($('input[type=radio]:checked').val() === 'old') {
+    } else {
         $.ajax({
             url: 'https://api.themoviedb.org/3/discover/movie',
             method: 'GET',
@@ -77,23 +84,7 @@ myApp.getMovies = function (e) {
         }).then(function (response) {
             myApp.movieArray = response.results
             myApp.counter = Math.floor((Math.random() * response.results.length))
-            $('img').attr({
-                src: `https://image.tmdb.org/t/p/w600_and_h900_bestv2/${myApp.movieArray[myApp.counter].poster_path}`,
-                alt: `Movie poster for ${myApp.movieArray[myApp.counter].title}`
-            })
-            $('.movieTitle').text(myApp.movieArray[myApp.counter].title)
-            $('.movieYear').text(myApp.movieArray[myApp.counter].release_date.slice(0, 4))
-            $('#resultOverview').text(myApp.movieArray[myApp.counter].overview)
-            $('#resultLanguage').text(myApp.movieArray[myApp.counter].original_language)
-            $('#resultRating').text(myApp.movieArray[myApp.counter].vote_average)
-            $('#resultGenre').empty()
-            myApp.movieArray[myApp.counter].genre_ids.forEach(movieGenre => {
-                for (item in myApp.genres) {
-                    if (myApp.genres[item] === movieGenre) {
-                        $('#resultGenre').append(`${item}, `)
-                    }
-                }
-            });
+            myApp.diplayMovieInfo(response.results, myApp.counter)
         })
     }
 }
@@ -101,42 +92,10 @@ myApp.getMovies = function (e) {
 myApp.nextMovie = function () {
     if (myApp.counter === myApp.movieArray.length - 1) {
         myApp.counter = 0;
-        $('img').attr({
-            src: `https://image.tmdb.org/t/p/w600_and_h900_bestv2/${myApp.movieArray[myApp.counter].poster_path}`,
-            alt: `Movie poster for ${myApp.movieArray[myApp.counter].title}`
-        })
-        $('.movieTitle').text(myApp.movieArray[myApp.counter].title)
-        $('.movieYear').text(myApp.movieArray[myApp.counter].release_date.slice(0, 4))
-        $('#resultOverview').text(myApp.movieArray[myApp.counter].overview)
-        $('#resultLanguage').text(myApp.movieArray[myApp.counter].original_language)
-        $('#resultRating').text(myApp.movieArray[myApp.counter].vote_average)
-        $('#resultGenre').empty()
-        myApp.movieArray[myApp.counter].genre_ids.forEach(movieGenre => {
-            for (item in myApp.genres) {
-                if (myApp.genres[item] === movieGenre) {
-                    $('#resultGenre').append(`${item}, `)
-                }
-            }
-        });
+        myApp.diplayMovieInfo(myApp.movieArray, myApp.counter)
     } else {
         myApp.counter++
-        $('img').attr({
-            src: `https://image.tmdb.org/t/p/w600_and_h900_bestv2/${myApp.movieArray[myApp.counter].poster_path}`,
-            alt: `Movie poster for ${myApp.movieArray[myApp.counter].title}`
-        })
-        $('.movieTitle').text(myApp.movieArray[myApp.counter].title)
-        $('.movieYear').text(myApp.movieArray[myApp.counter].release_date.slice(0, 4))
-        $('#resultOverview').text(myApp.movieArray[myApp.counter].overview)
-        $('#resultLanguage').text(myApp.movieArray[myApp.counter].original_language)
-        $('#resultRating').text(myApp.movieArray[myApp.counter].vote_average)
-        $('#resultGenre').empty()
-        myApp.movieArray[myApp.counter].genre_ids.forEach(movieGenre => {
-            for (item in myApp.genres) {
-                if (myApp.genres[item] === movieGenre) {
-                    $('#resultGenre').append(`${item}, `)
-                }
-            }
-        });
+        myApp.diplayMovieInfo(myApp.movieArray, myApp.counter)
     }
 }
 
