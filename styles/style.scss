@@ -1,42 +1,195 @@
-@import 'partials/normalize';
+@import "partials/normalize";
+
+//    HTML LAYOUT MAP
+
+// body>header>h1
+// body>main>section.search>.wrapper>form>label
+// body>main>section.search>.wrapper>form>select
+// body>main>section.search>.wrapper>form>input
+// body>main>section.search>.wrapper>form>input
+// body>main>section.search>.wrapper>form>button
+// body>main>section.result>.wrapper>.resultsContainer>.poster>img
+// body>main>section.result>.wrapper>.resultsContainer>.movieHeaders>h2.movieTitle
+// body>main>section.result>.wrapper>.resultsContainer>.movieHeaders>h4.movieYear
+// body>main>section.result>.wrapper>.resultsContainer>.movieInfo>.infoBlock>h5{Genres}
+// body>main>section.result>.wrapper>.resultsContainer>.movieInfo>.infoBlock>p#resultGenre
+// body>main>section.result>.wrapper>.resultsContainer>.movieInfo
+// body>main>section.result>.wrapper>.resultsContainer>.movieInfo>.infoBlock>h5{Synopsis}
+// body>main>section.result>.wrapper>.resultsContainer>.movieInfo>.infoBlock>p#resultOverview
+// body>main>section.result>.wrapper>.resultsContainer>.movieInfo
+// body>main>section.result>.wrapper>.resultsContainer>.movieInfo>.infoBlock>h5{Original Language}
+// body>main>section.result>.wrapper>.resultsContainer>.movieInfo>.infoBlock>p#resultLanguage
+// body>main>section.result>.wrapper>.resultsContainer>.movieInfo
+// body>main>section.result>.wrapper>.resultsContainer>.movieInfo>.infoBlock>h5{Rating}
+// body>main>section.result>.wrapper>.resultsContainer>.movieInfo>.infoBlock>p#resultRating
+// body>main>section.result>.wrapper>a.resultButton.anotherMovie#resultAnotherButton
+// body>main>section.result>.wrapper>a.resultButton.newSearch#resultNewButton
+// body>footer>h6
 
 //  VARIABLES
 
-  //  FONTS
-  $balooFont: 'Baloo Bhai', cursive;
-  $overpassFont: 'Overpass', sans-serif;
+//  FONTS
+$balooFont: "Baloo Bhai", cursive;
+$overpassFont: "Overpass", sans-serif;
 
-  //  COLOURS
+//  COLOURS
+
+$blueFade: #7a94ca;
+$medGrey: #444;
+$skyBlue: #3cccf0;
+$fieldGreen: #41f344;
+$darkGrey: #0e0e0e;
+$netflixRed: #bd0505;
+$trashBrown: #705619;
+
+/*  BASE STYLES */
+
+html {
+  font: 125% $overpassFont;
+  background-color: $medGrey;
+  color: #fff;
+}
+
+body {
+  font-size: 1rem;
+}
+
+img {
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+main,
+article,
+section,
+footer {
+  /* RESET  */
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-family: $balooFont;
+}
+
+h2,h3,h4,h5,h6,p,label,input, {
+  font-family: $overpassFont;
+}
+
+h2 {
+  //moveTitle
+}
+
+h4 {
+  //movieYear
+}
+
+h5 {
+  //infoTitle
+}
+
+h6 {
+  //footer
+}
+
+/*  COMMON OBJECTS  */
+
+button {
+
+}
+
+form {
+
+}
+
+label {
+
+}
+
+select {
+
+}
+
+input {
+
+}
+
+.wrapper {
+  margin: 0 auto;
+}
+
+/*  HEADER  */
+
+header {
+
+}
+
+/*  MAIN  */
+
+main {
+
+}
+
+  /*  SECTIONS  */
+
+  /*  FIRST SECTION */
+
+  .search {
   
-  $blueFade: #7a94ca;
-  $medGrey: #444;
-  $skyBlue: #3cccf0;
-  $fieldGreen: #41f344;
-  $darkGrey: #0e0e0e;
-  $netflixRed: #bd0505;
-  $trashBrown: #705619;
-
-  /*  BASE STYLES */
-
-  html {
-    font: 125% $overpassFont;
-    background-color:$medGrey;
-    color:#fff;
   }
 
-  body {
-    font-size: 1rem;
+  .resultsContainer {
+  
   }
 
-  h1,h2,h3,h4,h5,h6,main,article,section,footer { /* RESET  */
-    margin:0;
-    padding:0;
+  .poster {
+  
   }
 
-  h1 {
-    font-family: $balooFont;
+  .movieHeaders {
+
   }
 
-  .wrapper {
-    margin:0 auto;
+  .movieInfo {
+
+  }
+
+  .infoBlock {
+
+  }
+
+  p#resultGenre {
+
+  }
+
+  p#resultOverview {
+
+  }
+
+  p#resultLanguage {
+
+  }
+
+  p#resultRating {
+
+  }
+
+  a {
+    .resultButton {
+ 
+    }
+    .anotherMovie {
+ 
+    }
+    .newSearch {
+
+    }
+  }
+
+  footer {
+  
   }

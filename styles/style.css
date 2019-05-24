@@ -181,7 +181,16 @@ html {
 body {
   font-size: 1rem; }
 
-h1, h2, h3, h4, h5, h6, main, article, section, footer {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+main,
+article,
+section,
+footer {
   /* RESET  */
   margin: 0;
   padding: 0; }
@@ -189,5 +198,14 @@ h1, h2, h3, h4, h5, h6, main, article, section, footer {
 h1 {
   font-family: "Baloo Bhai", cursive; }
 
+h2, h3, h4, h5, h6, p, label, input {
+  font-family: "Overpass", sans-serif; }
+
+/*  COMMON OBJECTS  */
 .wrapper {
   margin: 0 auto; }
+
+/*  HEADER  */
+/*  MAIN  */
+/*  SECTIONS  */
+/*  FIRST SECTION */
