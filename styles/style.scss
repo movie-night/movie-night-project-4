@@ -12,7 +12,7 @@ $medGrey: #444;
 $skyBlue: #17f;
 $fieldGreen: #41f344;
 $darkGrey: #0e0e0e;
-$lightGrey: #999;
+$lightGrey: #ccc;
 $netflixRed: #bd0505;
 $trashBrown: #705619;
 
@@ -267,10 +267,15 @@ label {
 
 .poster {
   width: 400px;
+  border-radius: 5px;
 }
 
 .movieHeaders {
   font-size: 2rem;
+}
+
+.movieTitle {
+  color: $skyBlue;
 }
 
 .movieDetails {
@@ -293,6 +298,9 @@ label {
     font-size: 0.8rem;
     margin: 0;
   }
+    &::before {
+      color: $lightGrey;
+    }
 }
 
 .movieYear {
@@ -334,7 +342,6 @@ label {
     padding-top: 2px;
   }
 }
-
 
 .resultGenre,
 .resultRating {

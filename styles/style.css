@@ -421,7 +421,7 @@ label {
 
 .checkBoxOld::before {
   content: "";
-  background-color: #999;
+  background-color: #ccc;
   border-radius: 50px;
   position: absolute;
   width: 85px;
@@ -513,10 +513,15 @@ label {
 
 .poster {
   width: 400px;
+  border-radius: 5px;
 }
 
 .movieHeaders {
   font-size: 2rem;
+}
+
+.movieTitle {
+  color: #17f;
 }
 
 .movieDetails {
@@ -551,6 +556,10 @@ label {
 .infoBlock p {
   font-size: 0.8rem;
   margin: 0;
+}
+
+.infoBlock::before {
+  color: #ccc;
 }
 
 .movieYear {
@@ -672,11 +681,20 @@ footer {
   .wrapper {
     max-width: 1280px;
   }
+  .infoBlock {
+    margin: 10px 0;
+  }
 }
 
 @media screen and (max-width: 1024px) {
   .wrapper {
     max-width: 1024px;
+  }
+  .poster {
+    width: 250px;
+  }
+  .resultButtons {
+    width: 50%;
   }
 }
 
