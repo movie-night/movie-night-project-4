@@ -279,6 +279,11 @@ label {
   font-size: 2em;
 }
 
+.banner {
+  position:absolute;
+  opacity:0;
+}
+
 .movieTitle {
   color: $skyBlue;
 }
