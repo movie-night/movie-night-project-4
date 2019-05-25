@@ -81,7 +81,7 @@ footer {
 h1 {
   font-family: $balooFont;
   text-align: center;
-  font-size: 4rem;
+  font-size: 4em;
 }
 
 h2,
@@ -97,11 +97,9 @@ input {
 
 h2 {
   // sub header
-  width: 65%;
   text-align: center;
-  margin: 35px auto 0;
   line-height: 35px;
-  font-size: 1.2rem;
+  font-size: 1.2em;
 }
 
 h3,
@@ -119,9 +117,6 @@ h6 {
 }
 
 /*  COMMON OBJECTS  */
-
-button {
-}
 
 form {
   display: flex;
@@ -181,6 +176,7 @@ select {
 
 .wrapper {
   margin: 0 auto;
+  max-width: 1280px;
 }
 
 /*  HEADER  */
@@ -188,18 +184,20 @@ select {
 header {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   transition: height 0.5s;
   flex-direction: column;
-  min-height: 200px;
-}
-
-.headerMoveUp {
+  min-height: 350px;
+  width: 700px;
+  margin: 0 auto;
 }
 
 /*  MAIN  */
 
 main {
+  min-height: calc(100vh - 500px);
+  margin-bottom: 80px;
+  height: 100%;
 }
 /*  SECTIONS  */
 
@@ -263,7 +261,8 @@ label {
   right: -100px;
 }
 
-.submitButton {
+.submitButton,
+.resultButton {
   border: none;
   margin: 70px 0 35px;
   padding: 15px;
@@ -272,6 +271,7 @@ label {
   border-radius: 50px;
   color: white;
   background-color: #17f;
+  text-align: center;
   &:hover:not(:active) {
     transform: scale(1.015);
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
@@ -319,14 +319,15 @@ section.result {
 .movieInfo {
   padding: 0 60px;
   width: calc(100% - 400px);
-  justify-content: flex-end;
+  justify-content: flex-start;
+  align-items: flex-end;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
 }
 
 .infoBlock {
   display: flex;
-  padding-bottom: 30px;
+  width: 100%;
   &::before {
     font-style: normal;
     font-weight: 600;
@@ -356,7 +357,8 @@ section.result {
 }
 
 .ratingBlock {
-  margin-bottom:50px;
+  padding-bottom: 4px;
+  margin-bottom: 0;
   &::before {
     content: "User Rating: ";
   }
@@ -384,7 +386,10 @@ section.result {
 
 .resultButtons {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 40%;
+  margin: 60px auto 20px;
 }
 
 a {
@@ -412,30 +417,22 @@ footer {
   bottom: 0;
 }
 
-/*  ABSOLUTE OVERRIDES  */
+/*  RELATIVE OVERRIDES  */
 
-.visiblyHidden {
-  opacity: 0;
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  top: -9999px;
+.expandSection {
+  min-height: calc(100vh - 320px);
 }
 
-.removeBlock {
-  display: none;
+.headerMoveUp {
+  min-height: 200px;
+  font-size: 0.8em;
+  h2 {
+    line-height: 28px;
+  }
 }
 
-.sectionHidden {
-  opacity: 0;
-  z-index: -999;
-  pointer-events: none;
-}
-
-.capitalize {
-  text-transform: capitalize;
-}
-
-.upperCase {
-  text-transform: uppercase;
-}
+@import "partials/1280";
+@import "partials/1024";
+@import "partials/768";
+@import "partials/420";
+@import "partials/overrides";
