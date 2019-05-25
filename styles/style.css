@@ -233,7 +233,8 @@ body {
 }
 
 img {
-  width: 100%;
+  max-width: 100%;
+  min-height: 100%;
 }
 
 h1,
@@ -513,11 +514,17 @@ label {
 
 .poster {
   width: 400px;
+  -webkit-box-shadow: 10px 10px 10px 8px rgba(0, 0, 0, 0.4);
+  box-shadow: 10px 10px 10px 8px rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.poster img {
   border-radius: 5px;
 }
 
 .movieHeaders {
-  font-size: 2rem;
+  font-size: 2em;
 }
 
 .movieTitle {
@@ -690,11 +697,21 @@ footer {
   .wrapper {
     max-width: 1024px;
   }
+  .infoBlock, .movieHeaders {
+    font-size: 85%;
+  }
   .poster {
     width: 250px;
   }
   .resultButtons {
-    width: 50%;
+    width: 55%;
+  }
+  .movieInfo {
+    padding: 0 30px;
+    width: calc(100% - 250px);
+  }
+  .resultsContainer {
+    padding: 60px 10px 0;
   }
 }
 

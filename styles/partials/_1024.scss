@@ -3,13 +3,24 @@
     max-width: 1024px;
   }
 
-  
+  .infoBlock, .movieHeaders {
+    font-size:85%;
+  }
 
   .poster {
     width:250px;
   }
 
   .resultButtons {
-    width:50%;
+    width:55%;
+  }
+
+  .movieInfo {
+    padding: 0 30px;
+    width: calc(100% - 250px);
+  }
+
+  .resultsContainer {
+    padding: 60px 10px 0;
   }
 }

@@ -33,7 +33,8 @@ body {
 }
 
 img {
-  width: 100%;
+  max-width: 100%;
+  min-height: 100%;
 }
 
 h1,
@@ -267,11 +268,15 @@ label {
 
 .poster {
   width: 400px;
-  border-radius: 5px;
+  box-shadow: 10px 10px 10px 8px rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.4);
+  img {
+    border-radius: 5px;
+  }
 }
 
 .movieHeaders {
-  font-size: 2rem;
+  font-size: 2em;
 }
 
 .movieTitle {
@@ -298,9 +303,9 @@ label {
     font-size: 0.8rem;
     margin: 0;
   }
-    &::before {
-      color: $lightGrey;
-    }
+  &::before {
+    color: $lightGrey;
+  }
 }
 
 .movieYear {
