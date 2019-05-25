@@ -1,31 +1,5 @@
 @import "partials/normalize";
 
-//    HTML LAYOUT MAP
-
-// body>header>h1
-// body>main>section.search>.wrapper>form>label
-// body>main>section.search>.wrapper>form>select
-// body>main>section.search>.wrapper>form>input
-// body>main>section.search>.wrapper>form>input
-// body>main>section.search>.wrapper>form>button
-// body>main>section.result>.wrapper>.resultsContainer>.poster>img
-// body>main>section.result>.wrapper>.resultsContainer>.movieHeaders>h2.movieTitle
-// body>main>section.result>.wrapper>.resultsContainer>.movieHeaders>h4.movieYear
-// body>main>section.result>.wrapper>.resultsContainer>.movieInfo>.infoBlock>h5{Genres}
-// body>main>section.result>.wrapper>.resultsContainer>.movieInfo>.infoBlock>p#resultGenre
-// body>main>section.result>.wrapper>.resultsContainer>.movieInfo
-// body>main>section.result>.wrapper>.resultsContainer>.movieInfo>.infoBlock>h5{Synopsis}
-// body>main>section.result>.wrapper>.resultsContainer>.movieInfo>.infoBlock>p#resultOverview
-// body>main>section.result>.wrapper>.resultsContainer>.movieInfo
-// body>main>section.result>.wrapper>.resultsContainer>.movieInfo>.infoBlock>h5{Original Language}
-// body>main>section.result>.wrapper>.resultsContainer>.movieInfo>.infoBlock>p#resultLanguage
-// body>main>section.result>.wrapper>.resultsContainer>.movieInfo
-// body>main>section.result>.wrapper>.resultsContainer>.movieInfo>.infoBlock>h5{Rating}
-// body>main>section.result>.wrapper>.resultsContainer>.movieInfo>.infoBlock>p#resultRating
-// body>main>section.result>.wrapper>a.resultButton.anotherMovie#resultAnotherButton
-// body>main>section.result>.wrapper>a.resultButton.newSearch#resultNewButton
-// body>footer>h6
-
 //  VARIABLES
 
 //  FONTS
@@ -33,7 +7,6 @@ $balooFont: "Baloo Bhai", cursive;
 $overpassFont: "Overpass", sans-serif;
 
 //  COLOURS
-
 $blueFade: #7a94ca;
 $medGrey: #444;
 $skyBlue: #17f;
@@ -135,9 +108,6 @@ form {
   label {
     text-shadow: 0 0 30px #000;
   }
-}
-
-label {
 }
 
 section {
@@ -278,13 +248,7 @@ label {
   }
 }
 
-.search {
-}
-
 /*  SECOND SECTION  */
-
-section.result {
-}
 
 .resultsContainer {
   display: flex;
@@ -292,9 +256,13 @@ section.result {
   padding: 60px 40px 0;
 }
 
-.resultButtons {
+.movieInfo {
+  padding: 0 60px;
+  width: calc(100% - 400px);
+  justify-content: space-between;
+  align-items: flex-start;
   display: flex;
-  height: 100px;
+  flex-direction: column;
 }
 
 .poster {
@@ -303,26 +271,13 @@ section.result {
 
 .movieHeaders {
   font-size: 2rem;
-  flex-basis: 100%;
 }
 
-.movieYear {
-  padding-left: 5px;
-  &::before {
-    content: "(";
-  }
-  &::after {
-    content: ")";
-  }
-}
-
-.movieInfo {
-  padding: 0 60px;
-  width: calc(100% - 400px);
-  justify-content: flex-start;
-  align-items: flex-end;
+.movieDetails {
+  flex-basis: 50%;
+  flex-direction: column;
   display: flex;
-  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .infoBlock {
@@ -337,6 +292,16 @@ section.result {
   p {
     font-size: 0.8rem;
     margin: 0;
+  }
+}
+
+.movieYear {
+  padding-left: 5px;
+  &::before {
+    content: "(";
+  }
+  &::after {
+    content: ")";
   }
 }
 
@@ -370,6 +335,7 @@ section.result {
   }
 }
 
+
 .resultGenre,
 .resultRating {
   align-self: center;
@@ -385,6 +351,7 @@ section.result {
 }
 
 .resultButtons {
+  height: 100px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
@@ -395,14 +362,6 @@ section.result {
 a {
   text-decoration: none;
   color: inherit;
-  &:hover {
-  }
-  .resultButton {
-  }
-  .anotherMovie {
-  }
-  .newSearch {
-  }
 }
 
 footer {

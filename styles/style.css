@@ -493,11 +493,22 @@ label {
   padding: 60px 40px 0;
 }
 
-.resultButtons {
+.movieInfo {
+  padding: 0 60px;
+  width: calc(100% - 400px);
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  height: 100px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .poster {
@@ -506,36 +517,21 @@ label {
 
 .movieHeaders {
   font-size: 2rem;
-  -ms-flex-preferred-size: 100%;
-  flex-basis: 100%;
 }
 
-.movieYear {
-  padding-left: 5px;
-}
-
-.movieYear::before {
-  content: "(";
-}
-
-.movieYear::after {
-  content: ")";
-}
-
-.movieInfo {
-  padding: 0 60px;
-  width: calc(100% - 400px);
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-  -webkit-box-align: end;
-  -ms-flex-align: end;
-  align-items: flex-end;
+.movieDetails {
+  -ms-flex-preferred-size: 50%;
+  flex-basis: 50%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
 }
 
 .infoBlock {
@@ -555,6 +551,18 @@ label {
 .infoBlock p {
   font-size: 0.8rem;
   margin: 0;
+}
+
+.movieYear {
+  padding-left: 5px;
+}
+
+.movieYear::before {
+  content: "(";
+}
+
+.movieYear::after {
+  content: ")";
 }
 
 .genreBlock {
@@ -609,6 +617,7 @@ label {
 }
 
 .resultButtons {
+  height: 100px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

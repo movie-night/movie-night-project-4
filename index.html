@@ -43,17 +43,19 @@
               <h3 class="movieTitle"></h3>
               <h4 class="movieYear"></h4>
             </div>
-            <div class="infoBlock genreBlock">
-              <p id="resultGenre" class="resultGenre"></p>
-            </div>
-            <div class="infoBlock overviewBlock">
-              <p id="resultOverview" class="resultOverview"></p>
-            </div>
-            <div class="infoBlock languageBlock">
-              <p class="resultLanguage" id="resultLanguage"></p>
-            </div>
-            <div class="infoBlock ratingBlock">
-              <p class="resultRating" id="resultRating"></p>
+            <div class="movieDetails">
+              <div class="infoBlock genreBlock">
+                <p id="resultGenre" class="resultGenre"></p>
+              </div>
+              <div class="infoBlock overviewBlock">
+                <p id="resultOverview" class="resultOverview"></p>
+              </div>
+              <div class="infoBlock languageBlock">
+                <p class="resultLanguage" id="resultLanguage"></p>
+              </div>
+              <div class="infoBlock ratingBlock">
+                <p class="resultRating" id="resultRating"></p>
+              </div>
             </div>
           </div>
         </div>
@@ -70,15 +72,15 @@
 </body>
 <script src='./scripts/script.js'></script>
 <script>
-$(function(){
-$('.result').addClass('removeBlock');
-  $('h1').on('click', function() {
-    $('header').toggleClass('headerMoveUp');
-    $('.result').toggleClass('removeBlock');
-    $('.search').toggleClass('removeBlock');
-    $('main').toggleClass('expandSection');
+  $(function () {
+    $('.result').addClass('removeBlock');
+    $('h1').on('click', function () {
+      $('header').toggleClass('headerMoveUp');
+      $('.result').toggleClass('removeBlock');
+      $('.search').toggleClass('removeBlock');
+      $('main').toggleClass('expandSection');
+    });
   });
-});
 </script>
 
 </html>
