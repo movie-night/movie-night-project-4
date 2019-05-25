@@ -36,18 +36,24 @@ $overpassFont: "Overpass", sans-serif;
 
 $blueFade: #7a94ca;
 $medGrey: #444;
-$skyBlue: #3cccf0;
+$skyBlue: #17f;
 $fieldGreen: #41f344;
 $darkGrey: #0e0e0e;
+$lightGrey: #999;
 $netflixRed: #bd0505;
 $trashBrown: #705619;
 
 /*  BASE STYLES */
 
 html {
-  font: 125% $overpassFont;
-  background-color: $medGrey;
+  font: 125% "Overpass", sans-serif;
+  background-color: #444;
   color: #fff;
+  background-image: url("../assets/grey.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  overflow: hidden;
 }
 
 body {
@@ -55,7 +61,7 @@ body {
 }
 
 img {
-  width:100%;
+  width: 100%;
 }
 
 h1,
@@ -75,13 +81,32 @@ footer {
 
 h1 {
   font-family: $balooFont;
+  text-align: center;
+  margin-top: calc(25vh - 25px);
+  font-size: 4rem;
 }
 
-h2,h3,h4,h5,h6,p,label,input {
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+label,
+input {
   font-family: $overpassFont;
 }
 
 h2 {
+  // sub header
+  width: 65%;
+  text-align: center;
+  margin: 35px auto 0;
+  line-height: 35px;
+  font-size: 1.2rem;
+}
+
+h3 {
   //moveTitle
 }
 
@@ -100,145 +125,228 @@ h6 {
 /*  COMMON OBJECTS  */
 
 button {
-
 }
 
 form {
-
-}
+  display: flex;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  width: 80%;
+  margin: 30px auto 0;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 3% 5%;
+  select, label::before, button {
+    box-shadow:0 0 15px rgba(0,0,0,.6);
+  }
+  label {
+    text-shadow:0 0 30px #000;
+  }
+ }
 
 label {
-
 }
 
 section {
-  opacity:1;
-  transition: opacity .5s;
+  opacity: 1;
+  transition: opacity 0.5s;
+  position: absolute;
 }
 
 select {
-  width: 450px;
+  width: 60%;
   height: 50px;
   border-radius: 45px;
   text-align: center;
   border: none;
   color: #fff;
   appearance: none;
-  background-image: url('../assets/navarrow.svg'), linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5));
+  background-image: url("../assets/navarrow.svg"), linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.7));
   background-repeat: no-repeat;
   background-position: 95%;
+  background-color: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  &:hover {
+    background-image: url("../assets/navarrow.svg"), linear-gradient(rgba(122,148,202,.6), rgba(122,148,202,.2));
+    border-color:rgba(255,255,255,.2);
+  }
+  &:active {
+    background-image: url("../assets/navarrow.svg"), linear-gradient(#000, $medGrey);
+    border-color:rgba(0,0,0,.7);
+  }
 }
 
 input {
-
 }
 
 .wrapper {
   margin: 0 auto;
 }
 
-.visiblyHidden {
-  opacity:0;
+.oldNew {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  width: 40%;
 }
 
-.removeBlock {
-  display:none;
+label {
+  position: relative;
+  line-height: 45px;
+  margin: 4px 0px 0px 15px;
+}
+
+.checkBoxOld {
+  right: 105px;
+  &::before {
+    content: "";
+    background-color: $lightGrey;
+    border-radius: 50px;
+    position: absolute;
+    width: 85px;
+    height: 40px;
+    right: -105px;
+    top: 0;
+    display: block;
+    transition: background-color 0.2s, right 0.2s;
+  }
+  &::after {
+    content: "";
+    border-radius: 50px;
+    background-color: #fff;
+    display: block;
+    top: 5px;
+    right: -55px;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    transition: right 0.25s;
+    overflow: visible; // Prevents ::after element clipping box boundaries while transitioning
+  }
+}
+
+.checkBox:checked + .checkBoxOld::before {
+  background-color: $blueFade;
+}
+
+.checkBox:active + .checkBoxOld::before {
+  background-color: $skyBlue;
+}
+
+.checkBox:checked + .checkBoxOld::after {
+  right: -100px;
+}
+
+.submitButton {
+  border: none;
+  margin: 70px 0 35px;
+  padding: 15px;
+  width: 30%;
+  min-width: 200px;
+  border-radius:50px;
+  color:white;
+  background-color:#17f;
+  &:hover:not(:active) {
+    transform:scale(1.015);
+    box-shadow:0 0 15px rgba(255,255,255,.3);
+  }
 }
 
 /*  HEADER  */
 
 header {
-
 }
 
 /*  MAIN  */
 
 main {
-
 }
 
-  /*  SECTIONS  */
+/*  SECTIONS  */
 
-  /*  FIRST SECTION */
+/*  FIRST SECTION */
 
-  .search {
-  
+.search {
+}
+
+.resultsContainer {
+}
+
+.poster {
+}
+
+.movieHeaders {
+}
+
+.movieInfo {
+}
+
+.infoBlock {
+}
+
+p {
+  #resultGenre {
   }
 
-  .resultsContainer {
-  
+  p#resultOverview {
   }
 
-  .poster {
-  
+  p#resultLanguage {
   }
 
-  .movieHeaders {
-
+  p#resultRating {
   }
+}
 
-  .movieInfo {
-
+a {
+  text-decoration: none;
+  color: inherit;
+  &:hover {
   }
-
-  .infoBlock {
-
+  .resultButton {
   }
-
-  p {
-
-    #resultGenre {
-
-    }
-
-    p#resultOverview {
-
-    }
-
-    p#resultLanguage {
-
-    }
-
-    p#resultRating {
-
-    }
+  .anotherMovie {
   }
-
-  a {
-    text-decoration: none;
-    color:inherit;
-    &:hover {
-
-    }
-    .resultButton {
- 
-    }
-    .anotherMovie {
- 
-    }
-    .newSearch {
-
-    }
+  .newSearch {
   }
+}
 
-  footer {
-  justify-content:center;
+footer {
+  justify-content: center;
   background-color: $darkGrey;
-  color:#fff;
-  height:40px;
-  position:absolute;
-  bottom:0;
-  display:flex;
-  align-items:center;
-  width:100%;
-  }
+  color: #fff;
+  height: 40px;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
 
-  /*  ABSOLUTE OVERRIDES  */
+/*  ABSOLUTE OVERRIDES  */
 
-  .capitalize {
-    text-transform: capitalize;
-  }
+.visiblyHidden {
+  opacity: 0;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  top: -9999px;
+}
 
-  .upperCase {
-    text-transform: uppercase;
-  }
+.removeBlock {
+  display: none;
+}
+
+.sectionHidden {
+  opacity: 0;
+  z-index: -999;
+  pointer-events: none;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.upperCase {
+  text-transform: uppercase;
+}

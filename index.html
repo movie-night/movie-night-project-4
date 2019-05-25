@@ -10,6 +10,7 @@
   <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai|Overpass&display=swap" rel="stylesheet">
   <title>Movie Night</title>
 </head>
+
 <body>
   <header>
     <h1>Movie Night</h1>
@@ -17,28 +18,28 @@
   <main>
     <section class='search'>
       <div class="wrapper">
-
-        <form action="">
-          <label for="genre">Genre</label>
-          <select id="genre" name="genre">
-          </select>
-            <input type="checkbox" name="age" id="age">
-            <label for="age">New</label>
-            <label for="age">Old</label>
-            <button id="submit">
-              submit
-            </button>
-          </form>
-        </div>
+        <h2>Need a movie suggestion right away? Drop some information below and we'll find you the best thing to watch
+          in seconds!</h2>
+        <form action="" class="searchForm">
+          <label for="genre" class="visiblyHidden">Genre</label>
+          <select id="genre" name="genre"></select>
+          <div class="oldNew">
+            <input type="checkbox" name="age" id="age" class="visiblyHidden checkBox checkBoxAge" checked>
+            <label for="age" class="checkBoxLabel checkBoxOld">Old</label>
+            <label for="age" class="checkBoxLabel checkBoxNew">New</label>
+          </div>
+          <button id="submit" class="submitButton">Give me a movie!</button>
+        </form>
+      </div>
     </section>
-    <section class='result'>
+    <section class='result sectionHidden'>
       <div class="wrapper">
         <div class="resultsContainer">
           <div class="poster">
             <img src="" alt="">
           </div>
           <div class="movieHeaders">
-            <h2 class="movieTitle"></h2>
+            <h3 class="movieTitle"></h3>
             <h4 class="movieYear"></h4>
           </div>
           <div class="movieInfo">
@@ -65,9 +66,9 @@
       </div>
     </section>
   </main>
-<footer>
-  <h6>Copyright &copy; 2019 - Movie Night</h6>
-</footer>
+  <footer>
+    <h6>Copyright &copy; 2019 - Movie Night</h6>
+  </footer>
 </body>
 <script src='./scripts/script.js'></script>
 
