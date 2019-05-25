@@ -20,13 +20,16 @@ myApp.getGenres = function () {
 }
 
 myApp.listGenres = function(data, index) {
+    let genreArray = [];
     $('#resultGenre').empty()
     data[index].genre_ids.forEach(movieGenre => {
         for (item in myApp.genres) {
+            // SWITCHED TO ARRAY.JOIN() METHOD TO KEEP P TAGS
             if (myApp.genres[item] === movieGenre) {
-                $('#resultGenre').append(`<span class='capitalize'>${item}, </span>`)
+                genreArray.push(item);
             }
         }
+        $('#resultGenre').text(genreArray.join(', '));
     });
 }
 

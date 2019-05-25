@@ -220,16 +220,15 @@ template {
 /*  BASE STYLES */
 html {
   font: 125% "Overpass", sans-serif;
-  background-color: #444;
+  background-color: #000;
   color: #fff;
-  background-image: url("../assets/grey.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: 100vh;
-  overflow: hidden;
 }
 
 body {
+  background-image: url("../assets/grey.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
   font-size: 1rem;
 }
 
@@ -255,7 +254,6 @@ footer {
 h1 {
   font-family: "Baloo Bhai", cursive;
   text-align: center;
-  margin-top: calc(25vh - 25px);
   font-size: 4rem;
 }
 
@@ -278,6 +276,10 @@ h2 {
   font-size: 1.2rem;
 }
 
+h3, h4, h5, .infoBlock {
+  display: inline;
+}
+
 /*  COMMON OBJECTS  */
 form {
   display: -webkit-box;
@@ -294,7 +296,9 @@ form {
   padding: 3% 5%;
 }
 
-form select, form label::before, form button {
+form select,
+form label::before,
+form button {
   -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
 }
@@ -308,7 +312,6 @@ section {
   -webkit-transition: opacity 0.5s;
   -o-transition: opacity 0.5s;
   transition: opacity 0.5s;
-  position: absolute;
 }
 
 select {
@@ -358,6 +361,30 @@ select option {
   margin: 0 auto;
 }
 
+/*  HEADER  */
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: height 0.5s;
+  -o-transition: height 0.5s;
+  transition: height 0.5s;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-height: 200px;
+}
+
+/*  MAIN  */
+/*  SECTIONS  */
+/*  FIRST SECTION */
 .oldNew {
   position: relative;
   display: -webkit-box;
@@ -445,10 +472,50 @@ label {
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
 }
 
-/*  HEADER  */
-/*  MAIN  */
-/*  SECTIONS  */
-/*  FIRST SECTION */
+/*  SECOND SECTION  */
+.resultsContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  padding: 60px 40px 0;
+}
+
+.resultButtons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100px;
+}
+
+.poster {
+  width: 640px;
+}
+
+.movieHeaders {
+  margin-bottom: 40px;
+}
+
+.movieYear {
+  padding-left: 5px;
+}
+
+.movieYear::before {
+  content: '(';
+}
+
+.movieYear::after {
+  content: ')';
+}
+
+.movieInfo {
+  padding: 0 60px;
+}
+
+.resultGenre {
+  text-transform: capitalize;
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -461,7 +528,6 @@ footer {
   background-color: #0e0e0e;
   color: #fff;
   height: 40px;
-  position: absolute;
   bottom: 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -470,6 +536,7 @@ footer {
   -ms-flex-align: center;
   align-items: center;
   width: 100%;
+  bottom: 0;
 }
 
 /*  ABSOLUTE OVERRIDES  */

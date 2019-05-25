@@ -14,12 +14,12 @@
 <body>
   <header>
     <h1>Movie Night</h1>
+    <h2>Need a movie suggestion right away? Drop some information below and we'll find you the best thing to watch
+      in seconds!</h2>
   </header>
   <main>
     <section class='search'>
       <div class="wrapper">
-        <h2>Need a movie suggestion right away? Drop some information below and we'll find you the best thing to watch
-          in seconds!</h2>
         <form action="" class="searchForm">
           <label for="genre" class="visiblyHidden">Genre</label>
           <select id="genre" name="genre"></select>
@@ -32,37 +32,39 @@
         </form>
       </div>
     </section>
-    <section class='result sectionHidden'>
+    <section class='result'>
       <div class="wrapper">
         <div class="resultsContainer">
           <div class="poster">
             <img src="" alt="">
           </div>
-          <div class="movieHeaders">
-            <h3 class="movieTitle"></h3>
-            <h4 class="movieYear"></h4>
-          </div>
           <div class="movieInfo">
-            <div class="infoBlock">
+            <div class="movieHeaders">
+              <h3 class="movieTitle"></h3>
+              <h4 class="movieYear"></h4>
+            </div>
+            <div class="infoBlock genreBlock">
               <h5>Genres:</h5>
-              <p id="resultGenre"></p>
+              <p id="resultGenre" class="resultGenre"></p>
             </div>
-            <div class="infoBlock">
+            <div class="infoBlock overviewBlock">
               <h5>Synopsis:</h5>
-              <p id="resultOverview"></p>
+              <p id="resultOverview" class="resultOverview"></p>
             </div>
-            <div class="infoBlock">
+            <div class="infoBlock languageBlock">
               <h5>Original language:</h5>
-              <p class="" id="resultLanguage"></p>
+              <p class="resultLanguage" id="resultLanguage"></p>
             </div>
-            <div class="infoBlock">
+            <div class="infoBlock ratingBlock">
               <h5>Rating:</h5>
-              <p class="" id="resultRating"></p>
+              <p class="resultRating" id="resultRating"></p>
             </div>
           </div>
         </div>
-        <a href="#" class="resultButton anotherMovie" id="resultAnotherButton">Another</a>
-        <a href="" class="resultButton newSearch" id="resultNewButton">New Search</a>
+        <div class="resultButtons">
+          <a href="#" class="resultButton anotherMovie" id="resultAnotherButton">Another</a>
+          <a href="" class="resultButton newSearch" id="resultNewButton">New Search</a>
+        </div>
       </div>
     </section>
   </main>
@@ -71,5 +73,15 @@
   </footer>
 </body>
 <script src='./scripts/script.js'></script>
+<script>
+$(function(){
+$('.result').addClass('removeBlock');
+  $('h1').on('click', function() {
+    $('header').toggleClass('headerMoveUp');
+    $('.result').toggleClass('removeBlock');
+    $('.search').toggleClass('removeBlock');
+  });
+});
+</script>
 
 </html>

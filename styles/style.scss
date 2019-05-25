@@ -47,16 +47,15 @@ $trashBrown: #705619;
 
 html {
   font: 125% "Overpass", sans-serif;
-  background-color: #444;
+  background-color: #000;
   color: #fff;
-  background-image: url("../assets/grey.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: 100vh;
-  overflow: hidden;
 }
 
 body {
+  background-image: url("../assets/grey.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  width:100%;
   font-size: 1rem;
 }
 
@@ -82,7 +81,6 @@ footer {
 h1 {
   font-family: $balooFont;
   text-align: center;
-  margin-top: calc(25vh - 25px);
   font-size: 4rem;
 }
 
@@ -106,12 +104,8 @@ h2 {
   font-size: 1.2rem;
 }
 
-h3 {
-  //moveTitle
-}
-
-h4 {
-  //movieYear
+h3, h4, h5, .infoBlock {
+  display:inline;
 }
 
 h5 {
@@ -136,13 +130,15 @@ form {
   flex-wrap: wrap;
   justify-content: space-around;
   padding: 3% 5%;
-  select, label::before, button {
-    box-shadow:0 0 15px rgba(0,0,0,.6);
+  select,
+  label::before,
+  button {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
   }
   label {
-    text-shadow:0 0 30px #000;
+    text-shadow: 0 0 30px #000;
   }
- }
+}
 
 label {
 }
@@ -150,7 +146,6 @@ label {
 section {
   opacity: 1;
   transition: opacity 0.5s;
-  position: absolute;
 }
 
 select {
@@ -166,27 +161,50 @@ select {
   background-position: 95%;
   background-color: transparent;
   border: 1px solid rgba(0, 0, 0, 0.5);
-    text-transform: uppercase;
+  text-transform: uppercase;
   &:hover {
-    background-image: url("../assets/navarrow.svg"), linear-gradient(rgba(122,148,202,.6), rgba(122,148,202,.2));
-    border-color:rgba(255,255,255,.2);
+    background-image: url("../assets/navarrow.svg"), linear-gradient(rgba(122, 148, 202, 0.6), rgba(122, 148, 202, 0.2));
+    border-color: rgba(255, 255, 255, 0.2);
   }
   &:active {
     background-image: url("../assets/navarrow.svg"), linear-gradient(#000, $medGrey);
-    border-color:rgba(0,0,0,.7);
+    border-color: rgba(0, 0, 0, 0.7);
   }
   option {
-    background-color:rgba(0,0,0,.7);
-    border:none;
+    background-color: rgba(0, 0, 0, 0.7);
+    border: none;
     text-transform: capitalize;
   }
 }
 
-input {
-}
-
 .wrapper {
   margin: 0 auto;
+}
+
+/*  HEADER  */
+
+header {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:height 0.5s;
+  flex-direction:column;
+  min-height:200px;
+}
+
+.headerMoveUp {
+}
+
+/*  MAIN  */
+
+main {
+  
+}
+/*  SECTIONS  */
+
+/*  FIRST SECTION */
+
+section.search {
 }
 
 .oldNew {
@@ -200,7 +218,7 @@ label {
   position: relative;
   line-height: 45px;
   margin: 4px 0px 0px 15px;
-  user-select:none;
+  user-select: none;
 }
 
 .checkBoxOld {
@@ -250,60 +268,72 @@ label {
   padding: 15px;
   width: 30%;
   min-width: 200px;
-  border-radius:50px;
-  color:white;
-  background-color:#17f;
+  border-radius: 50px;
+  color: white;
+  background-color: #17f;
   &:hover:not(:active) {
-    transform:scale(1.015);
-    box-shadow:0 0 15px rgba(255,255,255,.3);
+    transform: scale(1.015);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
   }
 }
-
-/*  HEADER  */
-
-header {
-}
-
-/*  MAIN  */
-
-main {
-}
-
-/*  SECTIONS  */
-
-/*  FIRST SECTION */
 
 .search {
 }
 
+/*  SECOND SECTION  */
+
+section.result {
+}
+
 .resultsContainer {
+  display: flex;
+  width: 100%;
+  padding: 60px 40px 0;
+}
+
+.resultButtons {
+  display: flex;
+  height: 100px;
 }
 
 .poster {
+  width: 640px;
 }
 
 .movieHeaders {
+  margin-bottom:40px;
+}
+
+.movieYear {
+  padding-left: 5px;
+  &::before {
+    content:'(';
+  }
+  &::after {
+    content:')';
+  }
 }
 
 .movieInfo {
+  padding: 0 60px;
 }
 
 .infoBlock {
 }
 
-p {
-  #resultGenre {
+  .resultGenre {
+    text-transform: capitalize;
   }
 
-  p#resultOverview {
+  .resultOverview {
   }
 
-  p#resultLanguage {
+  .resultLanguage {
   }
 
-  p#resultRating {
+  .resultRating {
   }
-}
+
 
 a {
   text-decoration: none;
@@ -323,11 +353,11 @@ footer {
   background-color: $darkGrey;
   color: #fff;
   height: 40px;
-  position: absolute;
   bottom: 0;
   display: flex;
   align-items: center;
   width: 100%;
+  bottom: 0;
 }
 
 /*  ABSOLUTE OVERRIDES  */
