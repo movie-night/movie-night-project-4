@@ -315,7 +315,7 @@ select {
   width: 60%;
   height: 50px;
   border-radius: 45px;
-  text-align: center;
+  text-align-last: center;
   border: none;
   color: #fff;
   -webkit-appearance: none;
@@ -329,6 +329,7 @@ select {
   background-position: 95%;
   background-color: transparent;
   border: 1px solid rgba(0, 0, 0, 0.5);
+  text-transform: uppercase;
 }
 
 select:hover {
@@ -345,6 +346,12 @@ select:active {
   background-image: url("../assets/navarrow.svg"), -o-linear-gradient(#000, #444);
   background-image: url("../assets/navarrow.svg"), linear-gradient(#000, #444);
   border-color: rgba(0, 0, 0, 0.7);
+}
+
+select option {
+  background-color: rgba(0, 0, 0, 0.7);
+  border: none;
+  text-transform: capitalize;
 }
 
 .wrapper {
@@ -366,6 +373,10 @@ label {
   position: relative;
   line-height: 45px;
   margin: 4px 0px 0px 15px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .checkBoxOld {
