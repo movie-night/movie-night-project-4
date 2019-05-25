@@ -55,7 +55,7 @@ body {
   background-image: url("../assets/grey.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  width:100%;
+  width: 100%;
   font-size: 1rem;
 }
 
@@ -104,8 +104,10 @@ h2 {
   font-size: 1.2rem;
 }
 
-h3, h4, h5, .infoBlock {
-  display:inline;
+h3,
+h4,
+h5 {
+  display: inline;
 }
 
 h5 {
@@ -184,12 +186,12 @@ select {
 /*  HEADER  */
 
 header {
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  transition:height 0.5s;
-  flex-direction:column;
-  min-height:200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: height 0.5s;
+  flex-direction: column;
+  min-height: 200px;
 }
 
 .headerMoveUp {
@@ -198,7 +200,6 @@ header {
 /*  MAIN  */
 
 main {
-  
 }
 /*  SECTIONS  */
 
@@ -297,43 +298,94 @@ section.result {
 }
 
 .poster {
-  width: 640px;
+  width: 400px;
 }
 
 .movieHeaders {
-  margin-bottom:40px;
+  font-size: 2rem;
+  flex-basis: 100%;
 }
 
 .movieYear {
   padding-left: 5px;
   &::before {
-    content:'(';
+    content: "(";
   }
   &::after {
-    content:')';
+    content: ")";
   }
 }
 
 .movieInfo {
   padding: 0 60px;
+  width: calc(100% - 400px);
+  justify-content: flex-end;
+  display: flex;
+  flex-direction: column;
 }
 
 .infoBlock {
+  display: flex;
+  padding-bottom: 30px;
+  &::before {
+    font-style: normal;
+    font-weight: 600;
+    min-width: 130px;
+    max-width: 130px;
+  }
+  p {
+    font-size: 0.8rem;
+    margin: 0;
+  }
 }
 
-  .resultGenre {
-    text-transform: capitalize;
+.genreBlock {
+  text-transform: capitalize;
+  font-style: italic;
+  &::before {
+    content: "Genre: ";
   }
+}
 
-  .resultOverview {
+.overviewBlock::before {
+  content: "Synopsis: ";
+}
+
+.languageBlock::before {
+  content: "Original Language: ";
+}
+
+.ratingBlock {
+  margin-bottom:50px;
+  &::before {
+    content: "User Rating: ";
   }
-
-  .resultLanguage {
+  &::after {
+    content: "/ 10";
+    margin-left: 0.5rem;
+    font-size: 0.8rem;
+    padding-top: 2px;
   }
+}
 
-  .resultRating {
-  }
+.resultGenre,
+.resultRating {
+  align-self: center;
+}
 
+.resultOverview {
+  align-self: flex-start;
+  font-size: 1rem;
+}
+
+.resultLanguage {
+  align-self: flex-end;
+}
+
+.resultButtons {
+  display: flex;
+  justify-content: center;
+}
 
 a {
   text-decoration: none;

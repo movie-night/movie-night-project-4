@@ -276,7 +276,9 @@ h2 {
   font-size: 1.2rem;
 }
 
-h3, h4, h5, .infoBlock {
+h3,
+h4,
+h5 {
   display: inline;
 }
 
@@ -489,11 +491,13 @@ label {
 }
 
 .poster {
-  width: 640px;
+  width: 400px;
 }
 
 .movieHeaders {
-  margin-bottom: 40px;
+  font-size: 2rem;
+  -ms-flex-preferred-size: 100%;
+  flex-basis: 100%;
 }
 
 .movieYear {
@@ -501,19 +505,104 @@ label {
 }
 
 .movieYear::before {
-  content: '(';
+  content: "(";
 }
 
 .movieYear::after {
-  content: ')';
+  content: ")";
 }
 
 .movieInfo {
   padding: 0 60px;
+  width: calc(100% - 400px);
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
-.resultGenre {
+.infoBlock {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-bottom: 30px;
+}
+
+.infoBlock::before {
+  font-style: normal;
+  font-weight: 600;
+  min-width: 130px;
+  max-width: 130px;
+}
+
+.infoBlock p {
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+.genreBlock {
   text-transform: capitalize;
+  font-style: italic;
+}
+
+.genreBlock::before {
+  content: "Genre: ";
+}
+
+.overviewBlock::before {
+  content: "Synopsis: ";
+}
+
+.languageBlock::before {
+  content: "Original Language: ";
+}
+
+.ratingBlock {
+  margin-bottom: 50px;
+}
+
+.ratingBlock::before {
+  content: "User Rating: ";
+}
+
+.ratingBlock::after {
+  content: "/ 10";
+  margin-left: 0.5rem;
+  font-size: 0.8rem;
+  padding-top: 2px;
+}
+
+.resultGenre,
+.resultRating {
+  -ms-flex-item-align: center;
+  -ms-grid-row-align: center;
+  align-self: center;
+}
+
+.resultOverview {
+  -ms-flex-item-align: start;
+  align-self: flex-start;
+  font-size: 1rem;
+}
+
+.resultLanguage {
+  -ms-flex-item-align: end;
+  align-self: flex-end;
+}
+
+.resultButtons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
 }
 
 a {
