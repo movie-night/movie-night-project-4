@@ -4,6 +4,25 @@ myApp.key = '9c167d58adbd031f02b8a3cbcf7273c1';
 myApp.movieArray = [];
 myApp.counter = 0;
 myApp.genres = {};
+myApp.voteAverage = 7;
+
+myApp.serverCall = function(date) {
+    $.ajax({
+        url: 'https://api.themoviedb.org/3/discover/movie',
+        method: 'GET',
+        dataType: 'json',
+        data: {
+            api_key: myApp.key,
+            with_genres: $('#genre').val(),
+            'primary_release_date.lte': date,
+            'vote_average.gte': myApp.voteAverage
+        }
+    }).then(function (response) {
+        myApp.movieArray = response.results
+        myApp.counter = Math.floor((Math.random() * response.results.length))
+        myApp.diplayMovieInfo(response.results, myApp.counter)
+    })
+}
 
 myApp.getGenres = function () {
     $.ajax({
@@ -63,39 +82,9 @@ myApp.getMovies = function (e) {
     const pastDate = `${oldYear}-${month}-${day}`
 
     if ($('#age').is(':checked')) {
-        $.ajax({
-            url: 'https://api.themoviedb.org/3/discover/movie',
-            method: 'GET',
-            dataType: 'json',
-            data: {
-                api_key: myApp.key,
-                with_genres: $('#genre').val(),
-                'primary_release_date.lte': todaysDate,
-                'vote_average.gte': 7
-            }
-        }).then(function (response) {
-            console.log(response)
-            myApp.movieArray = response.results
-            myApp.counter = Math.floor((Math.random() * response.results.length))
-            myApp.diplayMovieInfo(response.results, myApp.counter)
-        })
+        myApp.serverCall(todaysDate)
     } else {
-        $.ajax({
-            url: 'https://api.themoviedb.org/3/discover/movie',
-            method: 'GET',
-            dataType: 'json',
-            data: {
-                api_key: myApp.key,
-                with_genres: $('#genre').val(),
-                'primary_release_date.lte': pastDate,
-                'vote_average.gte': 7
-            }
-        }).then(function (response) {
-            console.log(response)
-            myApp.movieArray = response.results
-            myApp.counter = Math.floor((Math.random() * response.results.length))
-            myApp.diplayMovieInfo(response.results, myApp.counter)
-        })
+        myApp.serverCall(pastDate)
     }
 }
 
