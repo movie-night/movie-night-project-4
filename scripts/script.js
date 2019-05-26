@@ -6,6 +6,19 @@ myApp.counter = 0;
 myApp.genres = {};
 myApp.voteAverage = 7;
 
+myApp.start = function() {
+    myApp.getGenres();
+    $('.result').addClass('removeBlock');
+
+    $('#submit').on('click', function (e) {
+        myApp.getMovies(e);
+    });
+
+    $('#resultAnotherButton').on('click', function (e) {
+        myApp.nextMovie();
+    });
+}
+
 myApp.serverCall = function(date) {
     $.ajax({
         url: 'https://api.themoviedb.org/3/discover/movie',
@@ -99,14 +112,5 @@ myApp.nextMovie = function () {
 }
 
 $(function () {
-    myApp.getGenres();
-    $('.result').addClass('removeBlock');
-
-    $('#submit').on('click', function (e) {
-        myApp.getMovies(e);
-    });
-
-    $('#resultAnotherButton').on('click', function (e) {
-        myApp.nextMovie();
-    });
+    myApp.start()
 })
