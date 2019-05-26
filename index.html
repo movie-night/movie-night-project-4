@@ -13,8 +13,8 @@
 
 <body>
   <header>
-    <h1>Movie Night</h1>
-    <h2>Need a movie suggestion right away? Drop some information below and we'll find you the best thing to watch
+    <h1 tabindex="1">Movie Night</h1>
+    <h2 tabindex="2">Need a movie suggestion right away? Drop some information below and we'll find you the best thing to watch
       in seconds!</h2>
   </header>
   <main>
@@ -22,13 +22,14 @@
       <div class="wrapper">
         <form action="" class="searchForm">
           <label for="genre" class="visiblyHidden">Genre</label>
-          <select id="genre" name="genre"></select>
+          <select id="genre" name="genre" tabindex="3"></select>
           <div class="oldNew">
-            <input type="checkbox" name="age" id="age" class="visiblyHidden checkBox checkBoxAge" checked>
+            <label for="age" class="visiblyHidden" aria-hidden="true">Do you want to watch old movies? Uncheck the box.</label>
+            <input type="checkbox" name="age" id="age" class="visiblyHidden checkBox checkBoxAge" checked tabindex="4">
             <label for="age" class="checkBoxLabel checkBoxOld">Old</label>
             <label for="age" class="checkBoxLabel checkBoxNew">New</label>
           </div>
-          <button id="submit" class="submitButton">Give me a movie!</button>
+          <button id="submit" class="submitButton" tabindex="5">Give me a movie!</button>
         </form>
       </div>
     </section>
