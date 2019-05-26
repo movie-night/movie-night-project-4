@@ -19,7 +19,7 @@ myApp.getGenres = function () {
     })
 }
 
-myApp.listGenres = function(data, index) {
+myApp.listGenres = function (data, index) {
     let genreArray = [];
     $('#resultGenre').empty()
     data[index].genre_ids.forEach(movieGenre => {
@@ -33,8 +33,8 @@ myApp.listGenres = function(data, index) {
     });
 }
 
-myApp.diplayMovieInfo = function(data, index) {
-    $('img').attr({
+myApp.diplayMovieInfo = function (data, index) {
+    $('.posterImage').attr({
         src: `https://image.tmdb.org/t/p/w600_and_h900_bestv2/${data[index].poster_path}`,
         alt: `Movie poster for ${data[index].title}`
     })
@@ -48,6 +48,11 @@ myApp.diplayMovieInfo = function(data, index) {
 
 myApp.getMovies = function (e) {
     e.preventDefault();
+
+    $('header').toggleClass('headerMoveUp');
+    $('.result').toggleClass('removeBlock');
+    $('.search').toggleClass('removeBlock');
+    $('main').toggleClass('expandSection');
 
     const oldYear = '1980'
     const year = new Date().getFullYear()
@@ -69,6 +74,7 @@ myApp.getMovies = function (e) {
                 'vote_average.gte': 7
             }
         }).then(function (response) {
+            console.log(response)
             myApp.movieArray = response.results
             myApp.counter = Math.floor((Math.random() * response.results.length))
             myApp.diplayMovieInfo(response.results, myApp.counter)
@@ -85,6 +91,7 @@ myApp.getMovies = function (e) {
                 'vote_average.gte': 7
             }
         }).then(function (response) {
+            console.log(response)
             myApp.movieArray = response.results
             myApp.counter = Math.floor((Math.random() * response.results.length))
             myApp.diplayMovieInfo(response.results, myApp.counter)
@@ -104,6 +111,8 @@ myApp.nextMovie = function () {
 
 $(function () {
     myApp.getGenres();
+    $('.result').addClass('removeBlock');
+
     $('#submit').on('click', function (e) {
         myApp.getMovies(e);
     });
