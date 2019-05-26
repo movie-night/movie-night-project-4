@@ -34,9 +34,12 @@ myApp.listGenres = function(data, index) {
 }
 
 myApp.diplayMovieInfo = function(data, index) {
-    $('img').attr({
-        src: `https://image.tmdb.org/t/p/w600_and_h900_bestv2/${data[index].poster_path}`,
-        alt: `Movie poster for ${data[index].title}`
+    $('.posterImage').attr({
+        'src': `https://image.tmdb.org/t/p/w600_and_h900_bestv2${data[index].poster_path}`,
+        'alt': `Movie poster for ${data[index].title}`
+    })
+    $('.bannerImage').attr({
+        'style': `background-image:url(https://image.tmdb.org/t/p/w1280${data[index].backdrop_path})`
     })
     $('.movieTitle').text(data[index].title)
     $('.movieYear').text(data[index].release_date.slice(0, 4))
@@ -69,9 +72,7 @@ myApp.getMovies = function (e) {
                 'vote_average.gte': 7
             }
         }).then(function (response) {
-            myApp.movieArray = response.results
-            myApp.counter = Math.floor((Math.random() * response.results.length))
-            myApp.diplayMovieInfo(response.results, myApp.counter)
+            pickMovieData(response)
         })
     } else {
         $.ajax({
@@ -85,9 +86,7 @@ myApp.getMovies = function (e) {
                 'vote_average.gte': 7
             }
         }).then(function (response) {
-            myApp.movieArray = response.results
-            myApp.counter = Math.floor((Math.random() * response.results.length))
-            myApp.diplayMovieInfo(response.results, myApp.counter)
+            pickMovieData(response)
         })
     }
 }
@@ -112,3 +111,9 @@ $(function () {
         myApp.nextMovie();
     });
 })
+
+const pickMovieData = function (response) {
+    myApp.movieArray = response.results
+    myApp.counter = Math.floor((Math.random() * response.results.length))
+    myApp.diplayMovieInfo(response.results, myApp.counter)
+}
