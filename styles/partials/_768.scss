@@ -2,4 +2,75 @@
   .wrapper {
     max-width: 768px;
   }
+  header {
+    h1 {
+      line-height: 70px;
+      padding-bottom: 20px;
+    }
+    h2 {
+      font-size: 0.7em;
+      line-height: 22px;
+      width: 80%;
+    }
+  }
+  .headerMoveUp {
+    min-height: 150px;
+  }
+  main {
+    min-height:calc(100vh - 570px);
+  }
+  form {
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 300px;
+    margin-top: 100px;
+  }
+  select {
+    font-size: 0.8em;
+    width: 100%;
+    order: 1;
+  }
+  .oldNew {
+    order: 0;
+    left: 50px;
+    width: 100px;
+  }
+  .submitButton {
+    order: 2;
+    margin: 0;
+    width: 100%;
+  }
+
+  .resultsContainer {
+    flex-direction: column;
+  }
+  .poster {
+    margin: 0 auto;
+    box-shadow: 0 0 15px 15px rgba(0, 0, 0, 0.3);
+  }
+  .movieInfo {
+    width: 100%;
+    padding: 0;
+    margin-top: 20px;
+  }
+  .movieHeaders {
+    align-self: center;
+  }
+  .genreBlock,
+  .overviewBlock {
+    flex-direction: column;
+  }
+  .resultGenre {
+    margin: 5px 0 0;
+    align-self: flex-start;
+  }
+  .resultButtons {
+    width: 95%;
+    flex-wrap: wrap;
+  }
+  .resultButton {
+    margin: 15px 15px;
+    width: 100%;
+  }
 }

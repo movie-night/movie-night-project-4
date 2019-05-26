@@ -4,6 +4,38 @@ myApp.key = '9c167d58adbd031f02b8a3cbcf7273c1';
 myApp.movieArray = [];
 myApp.counter = 0;
 myApp.genres = {};
+myApp.voteAverage = 7;
+
+myApp.start = function () {
+    myApp.getGenres();
+    $('.result').addClass('removeBlock');
+
+    $('#submit').on('click', function (e) {
+        myApp.getMovies(e);
+    });
+
+    $('#resultAnotherButton').on('click', function (e) {
+        myApp.nextMovie();
+    });
+}
+
+myApp.serverCall = function (date) {
+    $.ajax({
+        url: 'https://api.themoviedb.org/3/discover/movie',
+        method: 'GET',
+        dataType: 'json',
+        data: {
+            api_key: myApp.key,
+            with_genres: $('#genre').val(),
+            'primary_release_date.lte': date,
+            'vote_average.gte': myApp.voteAverage
+        }
+    }).then(function (response) {
+        myApp.movieArray = response.results
+        myApp.counter = Math.floor((Math.random() * response.results.length))
+        myApp.displayMovieInfo(response.results, myApp.counter)
+    })
+}
 
 myApp.getGenres = function () {
     $.ajax({
@@ -19,12 +51,11 @@ myApp.getGenres = function () {
     })
 }
 
-myApp.listGenres = function(data, index) {
+myApp.listGenres = function (data, index) {
     let genreArray = [];
     $('#resultGenre').empty()
     data[index].genre_ids.forEach(movieGenre => {
         for (item in myApp.genres) {
-            // SWITCHED TO ARRAY.JOIN() METHOD TO KEEP P TAGS
             if (myApp.genres[item] === movieGenre) {
                 genreArray.push(item);
             }
@@ -33,10 +64,13 @@ myApp.listGenres = function(data, index) {
     });
 }
 
-myApp.diplayMovieInfo = function(data, index) {
-    $('img').attr({
+myApp.displayMovieInfo = function (data, index) {
+    $('.posterImage').attr({
         src: `https://image.tmdb.org/t/p/w600_and_h900_bestv2/${data[index].poster_path}`,
         alt: `Movie poster for ${data[index].title}`
+    })
+    $('.bannerImage').attr({
+        'style': `background-image:url(https://image.tmdb.org/t/p/w1280${data[index].backdrop_path})`
     })
     $('.movieTitle').text(data[index].title)
     $('.movieYear').text(data[index].release_date.slice(0, 4))
@@ -48,6 +82,20 @@ myApp.diplayMovieInfo = function(data, index) {
 
 myApp.getMovies = function (e) {
     e.preventDefault();
+    const sectionTransition = function () {
+        $('header').toggleClass('headerMoveUp');
+        $('.result').toggleClass('removeBlock');
+        $('.search').toggleClass('removeBlock');
+        $('main').toggleClass('expandSection');
+        $('.search').removeClass('sectionHidden');
+    }
+    $('.banner').removeClass('removeBlock');
+    $('.search').addClass('sectionHidden');
+    setTimeout(function () {
+        sectionTransition();
+        $('.banner').addClass('bannerFade');
+    }, 800);
+    setTimeout(function () { $('.result').toggleClass('sectionHidden') }, 1000);
 
     const oldYear = '1980'
     const year = new Date().getFullYear()
@@ -58,57 +106,22 @@ myApp.getMovies = function (e) {
     const pastDate = `${oldYear}-${month}-${day}`
 
     if ($('#age').is(':checked')) {
-        $.ajax({
-            url: 'https://api.themoviedb.org/3/discover/movie',
-            method: 'GET',
-            dataType: 'json',
-            data: {
-                api_key: myApp.key,
-                with_genres: $('#genre').val(),
-                'primary_release_date.lte': todaysDate,
-                'vote_average.gte': 7
-            }
-        }).then(function (response) {
-            myApp.movieArray = response.results
-            myApp.counter = Math.floor((Math.random() * response.results.length))
-            myApp.diplayMovieInfo(response.results, myApp.counter)
-        })
+        setTimeout(myApp.serverCall(todaysDate), 500)
     } else {
-        $.ajax({
-            url: 'https://api.themoviedb.org/3/discover/movie',
-            method: 'GET',
-            dataType: 'json',
-            data: {
-                api_key: myApp.key,
-                with_genres: $('#genre').val(),
-                'primary_release_date.lte': pastDate,
-                'vote_average.gte': 7
-            }
-        }).then(function (response) {
-            myApp.movieArray = response.results
-            myApp.counter = Math.floor((Math.random() * response.results.length))
-            myApp.diplayMovieInfo(response.results, myApp.counter)
-        })
+        setTimeout(myApp.serverCall(pastDate), 500)
     }
 }
 
 myApp.nextMovie = function () {
     if (myApp.counter === myApp.movieArray.length - 1) {
         myApp.counter = 0;
-        myApp.diplayMovieInfo(myApp.movieArray, myApp.counter)
+        myApp.displayMovieInfo(myApp.movieArray, myApp.counter)
     } else {
         myApp.counter++
-        myApp.diplayMovieInfo(myApp.movieArray, myApp.counter)
+        myApp.displayMovieInfo(myApp.movieArray, myApp.counter)
     }
 }
 
 $(function () {
-    myApp.getGenres();
-    $('#submit').on('click', function (e) {
-        myApp.getMovies(e);
-    });
-
-    $('#resultAnotherButton').on('click', function (e) {
-        myApp.nextMovie();
-    });
+    myApp.start()
 })

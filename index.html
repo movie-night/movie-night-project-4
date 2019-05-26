@@ -13,61 +13,64 @@
 
 <body>
   <header>
-    <h1>Movie Night</h1>
-    <h2>Need a movie suggestion right away? Drop some information below and we'll find you the best thing to watch
+    <h1 tabindex="1">Movie Night</h1>
+    <h2 tabindex="2">Need a movie suggestion right away? Drop some information below and we'll find you the best thing
+      to watch
       in seconds!</h2>
   </header>
   <main>
+    <div class="banner removeBlock" aria-hidden>
+      <div class="bannerOverlay"></div>
+      <div class="bannerImage"></div>
+    </div>
     <section class='search'>
       <div class="wrapper">
         <form action="" class="searchForm">
           <label for="genre" class="visiblyHidden">Genre</label>
-          <select id="genre" name="genre"></select>
+          <select id="genre" name="genre" tabindex="3"></select>
           <div class="oldNew">
-            <input type="checkbox" name="age" id="age" class="visiblyHidden checkBox checkBoxAge" checked>
-            <label for="age" class="checkBoxLabel checkBoxOld">Old</label>
-            <label for="age" class="checkBoxLabel checkBoxNew">New</label>
+            <label for="age" class="visiblyHidden" aria-hidden="true">Do you want to watch old movies? Uncheck the
+              box.</label>
+            <input type="checkbox" name="age" id="age" class="visiblyHidden checkBox checkBoxAge" checked tabindex="4">
+            <label for="age" class="checkBoxLabel checkBoxOld" aria-hidden="true">Old</label>
+            <label for="age" class="checkBoxLabel checkBoxNew" aria-hidden="true">New</label>
           </div>
-          <button id="submit" class="submitButton">Give me a movie!</button>
+          <button id="submit" class="submitButton" tabindex="5">Give me a movie!</button>
         </form>
       </div>
     </section>
-    <section class='result'>
+    <section class='result sectionHidden'>
       <div class="wrapper">
         <div class="resultsContainer">
-          <div class="banner">
-            <div class="bannerOverlay"></div>
-            <div class="bannerImage"></div>
-          </div>
           <div class="poster">
             <img src="" alt="" class="posterImage">
           </div>
           <div class="movieInfo">
             <div class="movieHeaders">
               <div class="resultHeaders">
-                <h3 class="movieTitle"></h3>
+                <h3 class="movieTitle" tabindex="6"></h3>
                 <h4 class="movieYear"></h4>
               </div>
             </div>
             <div class="movieDetails">
               <div class="infoBlock genreBlock">
-                <p id="resultGenre" class="resultGenre"></p>
+                <p id="resultGenre" class="resultGenre" tabindex="7"></p>
               </div>
               <div class="infoBlock overviewBlock">
-                <p id="resultOverview" class="resultOverview"></p>
+                <p id="resultOverview" class="resultOverview" tabindex="8"></p>
               </div>
               <div class="infoBlock languageBlock">
-                <p class="resultLanguage" id="resultLanguage"></p>
+                <p class="resultLanguage" id="resultLanguage" tabindex="9"></p>
               </div>
               <div class="infoBlock ratingBlock">
-                <p class="resultRating" id="resultRating"></p>
+                <p class="resultRating" id="resultRating" tabindex="10"></p>
               </div>
             </div>
           </div>
         </div>
         <div class="resultButtons">
-          <a href="#" class="resultButton anotherMovie" id="resultAnotherButton">Another</a>
-          <a href="" class="resultButton newSearch" id="resultNewButton">New Search</a>
+          <a href="#" class="resultButton anotherMovie" id="resultAnotherButton" tabindex="11">Another</a>
+          <a href="" class="resultButton newSearch" id="resultNewButton" tabindex="12">New Search</a>
         </div>
       </div>
     </section>
@@ -76,7 +79,7 @@
     <h6>Copyright &copy; 2019 - Movie Night</h6>
   </footer>
 </body>
-<script src='./scripts/testscript.js'></script>
+<script src='./scripts/script.js'></script>
 <script>
   $(function () {
     $('.result').addClass('removeBlock');

@@ -3,12 +3,16 @@
     max-width: 1024px;
   }
 
+  .submitButton {
+    width:100%;
+  }
+
   .infoBlock, .movieHeaders {
     font-size:85%;
   }
 
   .poster {
-    width:250px;
+    max-width:250px;
   }
 
   .resultButtons {
@@ -16,11 +20,11 @@
   }
 
   .movieInfo {
-    padding: 0 30px;
+    padding: 0 0 0 25px;
     width: calc(100% - 250px);
   }
 
   .resultsContainer {
-    padding: 60px 10px 0;
+    padding: 60px 20px 0;
   }
 }

@@ -310,9 +310,9 @@ form label {
 
 section {
   opacity: 1;
-  -webkit-transition: opacity 0.5s;
-  -o-transition: opacity 0.5s;
-  transition: opacity 0.5s;
+  -webkit-transition: opacity 0.8s;
+  -o-transition: opacity 0.8s;
+  transition: opacity 0.8s;
 }
 
 select {
@@ -374,16 +374,14 @@ header {
   -webkit-box-pack: end;
   -ms-flex-pack: end;
   justify-content: flex-end;
-  -webkit-transition: height 0.5s;
-  -o-transition: height 0.5s;
-  transition: height 0.5s;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
   min-height: 350px;
-  width: 700px;
+  max-width: 700px;
   margin: 0 auto;
+  min-width: 340px;
 }
 
 /*  MAIN  */
@@ -391,6 +389,7 @@ main {
   min-height: calc(100vh - 500px);
   margin-bottom: 80px;
   height: 100%;
+  position: relative;
 }
 
 /*  SECTIONS  */
@@ -466,9 +465,7 @@ label {
 .submitButton,
 .resultButton {
   border: none;
-  margin: 70px 0 35px;
   padding: 15px;
-  width: 30%;
   min-width: 200px;
   border-radius: 50px;
   color: white;
@@ -483,6 +480,15 @@ label {
   transform: scale(1.015);
   -webkit-box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.resultButton {
+  width: 30%;
+}
+
+.submitButton {
+  margin: 70px 0 35px;
+  width: 80%;
 }
 
 /*  SECOND SECTION  */
@@ -514,9 +520,10 @@ label {
 }
 
 .poster {
-  width: 400px;
-  -webkit-box-shadow: 10px 10px 10px 8px rgba(0, 0, 0, 0.4);
-  box-shadow: 10px 10px 10px 8px rgba(0, 0, 0, 0.4);
+  max-width: 400px;
+  height: 100%;
+  -webkit-box-shadow: 10px 10px 10px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 10px 10px 10px 8px rgba(0, 0, 0, 0.3);
   background-color: rgba(0, 0, 0, 0.4);
   z-index: 2;
   margin-top: 20px;
@@ -529,18 +536,29 @@ label {
 
 .movieHeaders {
   font-size: 2em;
-  width: 100%;
-  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  padding: 10px 30px 25px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 20px;
+  margin-bottom: 20px;
 }
 
 .banner {
   position: absolute;
-  opacity: 0.6;
-  height: 100%;
+  opacity: 0;
+  height: calc(100% + 80px);
   width: 100%;
   overflow: hidden;
   z-index: 0;
   left: 0;
+  -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(25%, #000));
+  -webkit-mask-image: -webkit-linear-gradient(transparent, #000 25%);
+  -webkit-mask-repeat: no-repeat;
+  pointer-events: none;
+  -webkit-transition: opacity 1s;
+  -o-transition: opacity 1s;
+  transition: opacity 1s;
 }
 
 .bannerOverlay {
@@ -598,6 +616,9 @@ label {
   -ms-flex-pack: justify;
   justify-content: space-between;
   z-index: 1;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  border-radius: 20px;
 }
 
 .infoBlock {
@@ -675,18 +696,21 @@ label {
 }
 
 .resultButtons {
-  height: 100px;
+  min-height: 100px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -webkit-box-align: end;
-  -ms-flex-align: end;
-  align-items: flex-end;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   width: 40%;
   margin: 60px auto 20px;
+  position: relative;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 30px;
 }
 
 a {
@@ -720,6 +744,9 @@ footer {
 .headerMoveUp {
   min-height: 200px;
   font-size: 0.8em;
+  -webkit-transition: all 1s;
+  -o-transition: all 1s;
+  transition: all 1s;
 }
 
 .headerMoveUp h2 {
@@ -739,27 +766,122 @@ footer {
   .wrapper {
     max-width: 1024px;
   }
+  .submitButton {
+    width: 100%;
+  }
   .infoBlock, .movieHeaders {
     font-size: 85%;
   }
   .poster {
-    width: 250px;
+    max-width: 250px;
   }
   .resultButtons {
     width: 55%;
   }
   .movieInfo {
-    padding: 0 30px;
+    padding: 0 0 0 25px;
     width: calc(100% - 250px);
   }
   .resultsContainer {
-    padding: 60px 10px 0;
+    padding: 60px 20px 0;
   }
 }
 
 @media screen and (max-width: 768px) {
   .wrapper {
     max-width: 768px;
+  }
+  header h1 {
+    line-height: 70px;
+    padding-bottom: 20px;
+  }
+  header h2 {
+    font-size: 0.7em;
+    line-height: 22px;
+    width: 80%;
+  }
+  .headerMoveUp {
+    min-height: 150px;
+  }
+  main {
+    min-height: calc(100vh - 570px);
+  }
+  form {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    min-height: 300px;
+    margin-top: 100px;
+  }
+  select {
+    font-size: 0.8em;
+    width: 100%;
+    -webkit-box-ordinal-group: 2;
+    -ms-flex-order: 1;
+    order: 1;
+  }
+  .oldNew {
+    -webkit-box-ordinal-group: 1;
+    -ms-flex-order: 0;
+    order: 0;
+    left: 50px;
+    width: 100px;
+  }
+  .submitButton {
+    -webkit-box-ordinal-group: 3;
+    -ms-flex-order: 2;
+    order: 2;
+    margin: 0;
+    width: 100%;
+  }
+  .resultsContainer {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+  .poster {
+    margin: 0 auto;
+    -webkit-box-shadow: 0 0 15px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 15px 15px rgba(0, 0, 0, 0.3);
+  }
+  .movieInfo {
+    width: 100%;
+    padding: 0;
+    margin-top: 20px;
+  }
+  .movieHeaders {
+    -ms-flex-item-align: center;
+    -ms-grid-row-align: center;
+    align-self: center;
+  }
+  .genreBlock,
+  .overviewBlock {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+  .resultGenre {
+    margin: 5px 0 0;
+    -ms-flex-item-align: start;
+    align-self: flex-start;
+  }
+  .resultButtons {
+    width: 95%;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+  .resultButton {
+    margin: 15px 15px;
+    width: 100%;
   }
 }
 
@@ -796,4 +918,8 @@ footer {
 
 .upperCase {
   text-transform: uppercase;
+}
+
+.bannerFade {
+  opacity: .5;
 }
