@@ -88,10 +88,17 @@ myApp.listGenres = function (data, index) {
 }
 
 myApp.displayMovieInfo = function (data, index) {
+  if (data[index].poster_path !== '') {
   $('.posterImage').attr({
     src: `https://image.tmdb.org/t/p/w600_and_h900_bestv2/${data[index].poster_path}`,
     alt: `Movie poster for ${data[index].title}`
   })
+  } else {
+    $('.posterImage').attr({
+      src: `./assets/noposter.jpg`,
+      alt: `Movie has no poster`
+    })
+  }
   $('.bannerImage').attr({
     'style': `background-image:url(https://image.tmdb.org/t/p/w1280${data[index].backdrop_path})`
   })
