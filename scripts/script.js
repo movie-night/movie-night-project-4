@@ -89,13 +89,19 @@ myApp.getMovies = function (e) {
         $('main').toggleClass('expandSection');
         $('.search').removeClass('sectionHidden');
     }
+    $('body').addClass('stopScroll');
     $('.banner').removeClass('removeBlock');
     $('.search').addClass('sectionHidden');
     setTimeout(function () {
         sectionTransition();
         $('.banner').addClass('bannerFade');
     }, 800);
-    setTimeout(function () { $('.result').toggleClass('sectionHidden') }, 1000);
+    setTimeout(function () {
+        $('.result').toggleClass('sectionHidden');
+    }, 1000);
+    setTimeout(function() {
+        $('body').removeClass('stopScroll');
+    }, 1200);
 
     const oldYear = '1980'
     const year = new Date().getFullYear()

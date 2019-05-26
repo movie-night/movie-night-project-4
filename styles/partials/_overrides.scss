@@ -30,3 +30,9 @@
 .bannerFade {
   opacity:.5;
 }
+
+.stopScroll {
+  overflow: hidden;
+  max-height:100vh;
+  max-width:100vw;
+}
