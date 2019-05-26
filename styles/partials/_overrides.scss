@@ -33,6 +33,5 @@
 
 .stopScroll {
   overflow: hidden;
-  max-height:100vh;
-  max-width:100vw;
+  background-image:linear-gradient(black, black), url("../assets/grey.jpg");
 }

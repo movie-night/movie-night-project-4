@@ -9,15 +9,26 @@
 
   .popcornLogo {
     height: 150px;
-    min-width: 100%;
+    min-width: 250px;
   }
+
   .popcornLabelImage {
-    background-position: calc(50% + 140px);
+    background-position: center;
+    margin-left: 0;
+    &::after {
+      right: 0;
+      bottom: -55px;
+      left: unset;
+    }
   }
-  .popcornLabelImage::after {
-    right: 52%;
-    bottom: 20px;
-    left: unset;
+
+  .checkBoxTrash:checked + .popcornLabelImage {
+    background-position-x: 50px;
+    background-size: 250px;
+  }
+
+  .searchForm {
+    margin-top: 80px;
   }
 
   .submitButton {

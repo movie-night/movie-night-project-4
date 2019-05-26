@@ -25,11 +25,12 @@ html {
 }
 
 body {
-  background-image: url("../assets/grey.jpg");
+  background-image: linear-gradient(transparent, transparent), url("../assets/grey.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
   font-size: 1rem;
+  transition: background-image .8s;
 }
 
 img {
@@ -159,7 +160,7 @@ header {
   min-height: 350px;
   max-width: 82%;
   margin: 0 auto;
-  min-width: 340px;
+  min-width: 360px;
   h2 {
     margin:0 auto;
   }
