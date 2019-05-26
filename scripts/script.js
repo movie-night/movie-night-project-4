@@ -8,14 +8,15 @@ myApp.voteAverage = 7;
 
 myApp.start = function () {
     myApp.getGenres();
-    $('.result').addClass('removeBlock');
 
     $('#submit').on('click', function (e) {
         myApp.getMovies(e);
+        sectionTransitionFull();
     });
 
     $('#resultAnotherButton').on('click', function (e) {
-        myApp.nextMovie();
+        sectionTransitionPartial();
+        setTimeout(function(){myApp.nextMovie()}, 800);
     });
 }
 
@@ -82,26 +83,6 @@ myApp.displayMovieInfo = function (data, index) {
 
 myApp.getMovies = function (e) {
     e.preventDefault();
-    const sectionTransition = function () {
-        $('header').toggleClass('headerMoveUp');
-        $('.result').toggleClass('removeBlock');
-        $('.search').toggleClass('removeBlock');
-        $('main').toggleClass('expandSection');
-        $('.search').removeClass('sectionHidden');
-    }
-    $('body').addClass('stopScroll');
-    $('.banner').removeClass('removeBlock');
-    $('.search').addClass('sectionHidden');
-    setTimeout(function () {
-        sectionTransition();
-        $('.banner').addClass('bannerFade');
-    }, 800);
-    setTimeout(function () {
-        $('.result').toggleClass('sectionHidden');
-    }, 1000);
-    setTimeout(function() {
-        $('body').removeClass('stopScroll');
-    }, 1200);
 
     const oldYear = '1980'
     const year = new Date().getFullYear()
@@ -131,3 +112,36 @@ myApp.nextMovie = function () {
 $(function () {
     myApp.start()
 })
+
+const sectionTransitionFull = function () {
+    $('body').addClass('stopScroll');
+    $('.banner').removeClass('removeBlock');
+    $('.search').addClass('sectionHidden');
+    setTimeout(function () {
+        $('header').addClass('headerMoveUp');
+        $('.result').removeClass('removeBlock');
+        $('.search').addClass('removeBlock');
+        $('main').addClass('expandSection');
+        $('.search').removeClass('sectionHidden');
+    }, 800);
+    setTimeout(function () {
+        $('.banner').addClass('bannerFade');
+        $('.result').removeClass('sectionHidden');
+    }, 1000);
+    setTimeout(function () {
+        $('body').removeClass('stopScroll');
+    }, 1200);
+}
+
+const sectionTransitionPartial = function () {
+    $('body').addClass('stopScroll');
+    $('.banner').removeClass('bannerFade');
+    $('.result').addClass('sectionHidden');
+    setTimeout(function () {
+        $('.banner').addClass('bannerFade');
+        $('.result').removeClass('sectionHidden');
+    }, 1000);
+    setTimeout(function () {
+        $('body').removeClass('stopScroll');
+    }, 1200);
+}
