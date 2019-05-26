@@ -99,21 +99,26 @@ myApp.listGenres = function (data, index) {
 
 //Displays the movie information
 myApp.displayMovieInfo = function (data, index) {
-    //Display movie poster
+  if (data[index].poster_path !== '') { //Checks if movie has a poster
+  $('.posterImage').attr({
+    src: `https://image.tmdb.org/t/p/w600_and_h900_bestv2/${data[index].poster_path}`,
+    alt: `Movie poster for ${data[index].title}`
+  })
+  } else { //If theres no poster, insert dummy image
     $('.posterImage').attr({
-        src: `https://image.tmdb.org/t/p/w600_and_h900_bestv2/${data[index].poster_path}`,
-        alt: `Movie poster for ${data[index].title}`
+      src: `./assets/noposter.jpg`,
+      alt: `Movie has no poster`
     })
-    //Display banner in the background
-    $('.bannerImage').attr({
-        'style': `background-image:url(https://image.tmdb.org/t/p/w1280${data[index].backdrop_path})`
-    })
-    $('.movieTitle').text(data[index].title) //Display movie title
-    $('.movieYear').text(data[index].release_date.slice(0, 4)) //Display movie's release year
-    $('#resultOverview').text(data[index].overview) //Display sypnopsis
-    $('#resultLanguage').text(myApp.pickLanguage(data[index].original_language)) //Display movie's language
-    $('#resultRating').text(data[index].vote_average) //Display movie's rating
-    myApp.listGenres(data, index) //Display movie's genre(s)
+  }
+  $('.bannerImage').attr({ //Display banner image in background
+    'style': `background-image:url(https://image.tmdb.org/t/p/w1280${data[index].backdrop_path})`
+  })
+  $('.movieTitle').text(data[index].title) //Display movie title
+  $('.movieYear').text(data[index].release_date.slice(0, 4)) //Display movie's release year
+  $('#resultOverview').text(data[index].overview) //Display sypnopsis
+  $('#resultLanguage').text(myApp.pickLanguage(data[index].original_language)) //Display movie's language
+  $('#resultRating').text(data[index].vote_average) //Display movie's average vote rating
+  myApp.listGenres(data, index) //Display movie's genre(s)
 }
 
 //Get movie data

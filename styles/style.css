@@ -796,12 +796,15 @@ footer {
     padding-bottom: 20px;
   }
   header h2 {
-    font-size: 0.7em;
+    font-size: 0.8em;
     line-height: 22px;
     width: 80%;
   }
   .headerMoveUp {
     min-height: 150px;
+  }
+  .headerMoveUp h2 {
+    line-height: 22px;
   }
   main {
     min-height: calc(100vh - 570px);
