@@ -13,10 +13,16 @@
 
 <body>
   <header>
-    <h1 tabindex="1">Movie Night</h1>
-    <h2 tabindex="2">Need a movie suggestion right away? Drop some information below and we'll find you the best thing
-      to watch
-      in seconds!</h2>
+    <div class="headerText">
+      <h1 tabindex="1">Movie Night</h1>
+      <h2 tabindex="2">Need a movie suggestion right away? Drop some information below and we'll find you the best thing
+        to watch in seconds!</h2>
+    </div>
+    <div class="popcornLogo" aria-hidden>
+      <label for="trash" class="visiblyHidden" aria-hidden>In the mood for a trashy movie? Then uncheck this box!</label>
+      <input type="checkbox" name="trash" id="trash" class="visiblyHidden checkBoxTrash" checked tabindex="3">
+      <label for="trash" class="popcornLabelImage" aria-hidden></label>
+    </div>
   </header>
   <main>
     <div class="banner removeBlock" aria-hidden>
@@ -27,15 +33,15 @@
       <div class="wrapper">
         <form action="" class="searchForm">
           <label for="genre" class="visiblyHidden">Genre</label>
-          <select id="genre" name="genre" tabindex="3"></select>
+          <select id="genre" name="genre" tabindex="4"></select>
           <div class="oldNew">
-            <label for="age" class="visiblyHidden" aria-hidden="true">Do you want to watch old movies? Uncheck the
+            <label for="age" class="visiblyHidden" aria-hidden=>Do you want to watch old movies? Uncheck the
               box.</label>
-            <input type="checkbox" name="age" id="age" class="visiblyHidden checkBox checkBoxAge" checked tabindex="4">
-            <label for="age" class="checkBoxLabel checkBoxOld" aria-hidden="true">Old</label>
-            <label for="age" class="checkBoxLabel checkBoxNew" aria-hidden="true">New</label>
+            <input type="checkbox" name="age" id="age" class="visiblyHidden checkBox checkBoxAge" checked tabindex="5">
+            <label for="age" class="checkBoxLabel checkBoxOld" aria-hidden>Old</label>
+            <label for="age" class="checkBoxLabel checkBoxNew" aria-hidden>New</label>
           </div>
-          <button id="submit" class="submitButton" tabindex="5">Give me a movie!</button>
+          <button id="submit" class="submitButton" tabindex="6">Give me a movie!</button>
         </form>
       </div>
     </section>
@@ -48,29 +54,31 @@
           <div class="movieInfo">
             <div class="movieHeaders">
               <div class="resultHeaders">
-                <h3 class="movieTitle" tabindex="6"></h3>
+                <h3 class="movieTitle" tabindex="7"></h3>
                 <h4 class="movieYear"></h4>
               </div>
             </div>
             <div class="movieDetails">
               <div class="infoBlock genreBlock">
-                <p id="resultGenre" class="resultGenre" tabindex="7"></p>
+                <p id="resultGenre" class="resultGenre" tabindex="8"></p>
               </div>
               <div class="infoBlock overviewBlock">
-                <p id="resultOverview" class="resultOverview" tabindex="8"></p>
+                <p id="resultOverview" class="resultOverview" tabindex="9"></p>
               </div>
               <div class="infoBlock languageBlock">
-                <p class="resultLanguage" id="resultLanguage" tabindex="9"></p>
+                <p class="resultLanguage" id="resultLanguage" tabindex="10"></p>
               </div>
               <div class="infoBlock ratingBlock">
-                <p class="resultRating" id="resultRating" tabindex="10"></p>
+                <p class="resultRating" id="resultRating" tabindex="11"></p>
               </div>
             </div>
           </div>
         </div>
         <div class="resultButtons">
-          <a href="#" aria-label="Click the 'Another' button to find another movie" class="resultButton anotherMovie" id="resultAnotherButton" tabindex="11">Another</a>
-          <a href="" aria-label="Click the 'New Search' button to find another movie"class="resultButton newSearch" id="resultNewButton" tabindex="12">New Search</a>
+          <a href="#" aria-label="Click the 'Another' button to find another movie" class="resultButton anotherMovie"
+            id="resultAnotherButton" tabindex="12">Another</a>
+          <a href="" aria-label="Click the 'New Search' button to find another movie" class="resultButton newSearch"
+            id="resultNewButton" tabindex="13">New Search</a>
         </div>
       </div>
     </section>
@@ -80,4 +88,5 @@
   </footer>
 </body>
 <script src='./scripts/script.js'></script>
+
 </html>

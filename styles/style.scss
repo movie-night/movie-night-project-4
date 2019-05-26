@@ -155,12 +155,57 @@ select {
 header {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  flex-direction: column;
+  justify-content: space-between;
   min-height: 350px;
-  max-width: 700px;
+  max-width: 82%;
   margin: 0 auto;
   min-width: 340px;
+  h2 {
+    margin:0 auto;
+  }
+}
+
+.popcornLogo {
+  margin-left: 40px;
+  height: 200px;
+  min-width: 320px;
+  position: relative;
+}
+
+.popcornLabelImage {
+  background-image: url("../assets/trashicon.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: left;
+  display: block;
+  height: 100%;
+  position: relative;
+  &::after {
+    content: '"Gimme something trashy"';
+    bottom: -60px;
+    font-size: 0.8em;
+    text-shadow: 0 0 10px black;
+    color: #17f;
+    position: absolute;
+    left: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    font-weight: 600;
+    letter-spacing: 0.225px;
+    width: 245px;
+    text-align: center;
+    opacity:0;
+  }
+  &:hover::after {
+    opacity:1
+  }
+}
+
+input.checkBoxTrash:checked + .popcornLabelImage {
+  background-image: url("../assets/qualityicon.svg");
+  &::after {
+    content: '"I wanna watch a good movie"';
+  }
 }
 
 /*  MAIN  */
@@ -218,15 +263,15 @@ label {
   }
 }
 
-.checkBox:checked + .checkBoxOld::before {
+.checkBoxAge:checked + .checkBoxOld::before {
   background-color: $blueFade;
 }
 
-.checkBox:active + .checkBoxOld::before {
+.checkBoxAge:active + .checkBoxOld::before {
   background-color: $skyBlue;
 }
 
-.checkBox:checked + .checkBoxOld::after {
+.checkBoxAge:checked + .checkBoxOld::after {
   right: -100px;
 }
 

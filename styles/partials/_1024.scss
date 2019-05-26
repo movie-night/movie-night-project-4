@@ -3,20 +3,38 @@
     max-width: 1024px;
   }
 
-  .submitButton {
-    width:100%;
+  header {
+    flex-direction: column;
   }
 
-  .infoBlock, .movieHeaders {
-    font-size:85%;
+  .popcornLogo {
+    height: 150px;
+    min-width: 100%;
+  }
+  .popcornLabelImage {
+    background-position: calc(50% + 140px);
+  }
+  .popcornLabelImage::after {
+    right: 52%;
+    bottom: 20px;
+    left: unset;
+  }
+
+  .submitButton {
+    width: 100%;
+  }
+
+  .infoBlock,
+  .movieHeaders {
+    font-size: 85%;
   }
 
   .poster {
-    max-width:250px;
+    max-width: 250px;
   }
 
   .resultButtons {
-    width:55%;
+    width: 55%;
   }
 
   .movieInfo {

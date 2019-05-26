@@ -3,7 +3,7 @@
     max-width: 768px;
   }
   header {
-    h1 {
+     h1 {
       line-height: 70px;
       padding-bottom: 20px;
     }
@@ -16,11 +16,21 @@
   .headerMoveUp {
     min-height: 150px;
     h2 {
-      line-height:22px;
+      line-height: 22px;
     }
   }
+  .popcornLogo {
+    height: 100px;
+  }
+  .popcornLabelImage {
+    background-position: calc(50% + 140px);
+  }
+  .popcornLabelImage::after {
+    right: 50%;
+    opacity:1;
+  }
   main {
-    min-height:calc(100vh - 570px);
+    min-height: calc(100vh - 570px);
   }
   form {
     flex-direction: column;

@@ -371,17 +371,63 @@ header {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  -webkit-box-pack: end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   min-height: 350px;
-  max-width: 700px;
+  max-width: 82%;
   margin: 0 auto;
   min-width: 340px;
+}
+
+header h2 {
+  margin: 0 auto;
+}
+
+.popcornLogo {
+  margin-left: 40px;
+  height: 200px;
+  min-width: 320px;
+  position: relative;
+}
+
+.popcornLabelImage {
+  background-image: url("../assets/trashicon.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: left;
+  display: block;
+  height: 100%;
+  position: relative;
+}
+
+.popcornLabelImage::after {
+  content: '"Gimme something trashy"';
+  bottom: -60px;
+  font-size: 0.8em;
+  text-shadow: 0 0 10px black;
+  color: #17f;
+  position: absolute;
+  left: 50px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  font-weight: 600;
+  letter-spacing: 0.225px;
+  width: 245px;
+  text-align: center;
+  opacity: 0;
+}
+
+.popcornLabelImage:hover::after {
+  opacity: 1;
+}
+
+input.checkBoxTrash:checked + .popcornLabelImage {
+  background-image: url("../assets/qualityicon.svg");
+}
+
+input.checkBoxTrash:checked + .popcornLabelImage::after {
+  content: '"I wanna watch a good movie"';
 }
 
 /*  MAIN  */
@@ -450,15 +496,15 @@ label {
   overflow: visible;
 }
 
-.checkBox:checked + .checkBoxOld::before {
+.checkBoxAge:checked + .checkBoxOld::before {
   background-color: #7a94ca;
 }
 
-.checkBox:active + .checkBoxOld::before {
+.checkBoxAge:active + .checkBoxOld::before {
   background-color: #17f;
 }
 
-.checkBox:checked + .checkBoxOld::after {
+.checkBoxAge:checked + .checkBoxOld::after {
   right: -100px;
 }
 
@@ -766,10 +812,29 @@ footer {
   .wrapper {
     max-width: 1024px;
   }
+  header {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+  .popcornLogo {
+    height: 150px;
+    min-width: 100%;
+  }
+  .popcornLabelImage {
+    background-position: calc(50% + 140px);
+  }
+  .popcornLabelImage::after {
+    right: 52%;
+    bottom: 20px;
+    left: unset;
+  }
   .submitButton {
     width: 100%;
   }
-  .infoBlock, .movieHeaders {
+  .infoBlock,
+  .movieHeaders {
     font-size: 85%;
   }
   .poster {
@@ -805,6 +870,16 @@ footer {
   }
   .headerMoveUp h2 {
     line-height: 22px;
+  }
+  .popcornLogo {
+    height: 100px;
+  }
+  .popcornLabelImage {
+    background-position: calc(50% + 140px);
+  }
+  .popcornLabelImage::after {
+    right: 50%;
+    opacity: 1;
   }
   main {
     min-height: calc(100vh - 570px);
