@@ -134,9 +134,9 @@ myApp.displayMovieInfo = function (data, index) {
   $('.bannerImage').attr({ //Display banner image in background
     'style': `background-image:url(https://image.tmdb.org/t/p/w1280${data[index].backdrop_path})`
   })
-  $('.movieTitle').text(data[index].title) //Display movie title
+  $('.movieTitle').html(`<h3 class="movieTitle" tabindex="7">${data[index].title}</h3>`) //Display movie title
   $('.movieYear').text(data[index].release_date.slice(0, 4)) //Display movie's release year
-  $('#resultOverview').text(data[index].overview) //Display sypnopsis
+  $('#resultOverview').html(`<p id="resultOverview" class="resultOverview" tabindex="9">${data[index].overview}</p>`) //Display sypnopsis
   $('#resultLanguage').text(myApp.pickLanguage(data[index].original_language)) //Display movie's language
   $('#resultRating').text(data[index].vote_average) //Display movie's average vote rating
   myApp.listGenres(data, index) //Display movie's genre(s)
