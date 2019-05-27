@@ -395,6 +395,10 @@ header h2 {
   margin: 0 auto;
 }
 
+.headerText {
+  margin: 0 auto;
+}
+
 .popcornLogo {
   margin-left: 40px;
   height: 200px;

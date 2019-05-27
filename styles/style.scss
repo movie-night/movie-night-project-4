@@ -148,7 +148,7 @@ select {
   NO SKIP BOX, WOULDN'T HAVE A PURPOSE
 
 ==========================================================================*/
-
+ 
 /*  HEADER  */
 
 header {
@@ -162,6 +162,10 @@ header {
   h2 {
     margin: 0 auto;
   }
+}
+
+.headerText {
+  margin:0 auto;
 }
 
 .popcornLogo {
