@@ -171,6 +171,8 @@ header {
   height: 200px;
   min-width: 320px;
   position: relative;
+  opacity: 1;
+  transition: opacity .6s;
 }
 
 .popcornLabelImage {
