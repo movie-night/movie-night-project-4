@@ -1101,4 +1101,5 @@ footer {
   background-image: -webkit-linear-gradient(black, black), url("../assets/grey.jpg");
   background-image: -o-linear-gradient(black, black), url("../assets/grey.jpg");
   background-image: linear-gradient(black, black), url("../assets/grey.jpg");
+  height: 100vh;
 }
