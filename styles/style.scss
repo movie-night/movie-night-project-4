@@ -38,6 +38,11 @@ img {
   min-height: 100%;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 h1,
 h2,
 h3,
@@ -295,10 +300,14 @@ label {
   color: white;
   background-color: $skyBlue;
   text-align: center;
-  &:hover:not(:active) {
+  &:hover {
     transform: scale(1.015);
     background-color: $blueFade;
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+  }
+  &:active {
+    background-color:$skyBlue;
+    box-shadow: unset;
   }
 }
 
@@ -492,7 +501,7 @@ label {
 .resultButton {
   width: 30%;
   &::after {
-    opacity:0;
+    opacity: 0;
     position: absolute;
     font-size: 0.8em;
     width: 220px;
@@ -501,24 +510,26 @@ label {
     padding: 10px;
     border-radius: 15px;
     pointer-events: none;
-    left:-20px;
+    left: -20px;
+  }
+}
+
+.anotherMovie {
+  &::after {
+    content: "Hit me up with another!";
   }
   &:hover::after {
-    opacity:1;
+    opacity: 1;
   }
 }
 
-.anotherMovie::after {
-  content:'Hit me up with another!';
-}
-
-.newSearch::after {
-  content:'I wanna find something else!';
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
+.newSearch {
+  &::after {
+    content: "I wanna find something else!";
+  }
+  &:hover::after {
+    opacity: 1;
+  }
 }
 
 footer {

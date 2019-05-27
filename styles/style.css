@@ -243,6 +243,11 @@ img {
   min-height: 100%;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 h1,
 h2,
 h3,
@@ -546,14 +551,21 @@ label {
   text-align: center;
 }
 
-.submitButton:hover:not(:active),
-.resultButton:hover:not(:active) {
+.submitButton:hover,
+.resultButton:hover {
   -webkit-transform: scale(1.015);
   -ms-transform: scale(1.015);
   transform: scale(1.015);
   background-color: #7a94ca;
   -webkit-box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.submitButton:active,
+.resultButton:active {
+  background-color: #17f;
+  -webkit-box-shadow: unset;
+  box-shadow: unset;
 }
 
 .submitButton {
@@ -804,21 +816,20 @@ label {
   left: -20px;
 }
 
-.resultButton:hover::after {
+.anotherMovie::after {
+  content: "Hit me up with another!";
+}
+
+.anotherMovie:hover::after {
   opacity: 1;
 }
 
-.anotherMovie::after {
-  content: 'Hit me up with another!';
-}
-
 .newSearch::after {
-  content: 'I wanna find something else!';
+  content: "I wanna find something else!";
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
+.newSearch:hover::after {
+  opacity: 1;
 }
 
 footer {
