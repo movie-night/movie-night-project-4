@@ -1,7 +1,11 @@
 @media screen and (max-width: 1024px) {
+  /*  COMMON OBJECTS  */
+
   .wrapper {
     max-width: 1024px;
   }
+
+  /*  HEADER  */
 
   header {
     flex-direction: column;
@@ -27,6 +31,8 @@
     background-size: 250px;
   }
 
+  /*  FIRST SECTION */
+
   .searchForm {
     margin-top: 80px;
   }
@@ -34,6 +40,8 @@
   .submitButton {
     width: 100%;
   }
+
+  /*  SECOND SECTION  */
 
   .infoBlock,
   .movieHeaders {

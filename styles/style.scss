@@ -30,7 +30,7 @@ body {
   background-repeat: no-repeat;
   width: 100%;
   font-size: 1rem;
-  transition: background-image .8s;
+  transition: background-image 0.8s;
 }
 
 img {
@@ -81,14 +81,6 @@ h3,
 h4,
 h5 {
   display: inline;
-}
-
-h5 {
-  //infoTitle
-}
-
-h6 {
-  //footer
 }
 
 /*  COMMON OBJECTS  */
@@ -151,6 +143,12 @@ select {
   max-width: 1280px;
 }
 
+/*==========================================================================
+
+  NO SKIP BOX, WOULDN'T HAVE A PURPOSE
+
+==========================================================================*/
+
 /*  HEADER  */
 
 header {
@@ -162,7 +160,7 @@ header {
   margin: 0 auto;
   min-width: 360px;
   h2 {
-    margin:0 auto;
+    margin: 0 auto;
   }
 }
 
@@ -172,7 +170,7 @@ header {
   min-width: 320px;
   position: relative;
   opacity: 1;
-  transition: opacity .6s;
+  transition: opacity 0.6s;
 }
 
 .popcornLabelImage {
@@ -197,10 +195,10 @@ header {
     letter-spacing: 0.225px;
     width: 245px;
     text-align: center;
-    opacity:0;
+    opacity: 0;
   }
   &:hover::after {
-    opacity:1
+    opacity: 1;
   }
 }
 
@@ -440,15 +438,20 @@ label {
 .ratingBlock {
   padding-bottom: 4px;
   margin-bottom: 0;
+  position: relative;
   &::before {
     content: "User Rating: ";
   }
-  &::after {
-    content: "/ 10";
-    margin-left: 0.5rem;
-    font-size: 0.8rem;
-    padding-top: 2px;
-  }
+}
+
+.popcornRating {
+  position: relative;
+  height: 25px;
+  left: 20px;
+  background-image: url("../assets/rating.png");
+  background-size: 180px;
+  background-repeat: no-repeat;
+  width: 180px;
 }
 
 .resultGenre,

@@ -139,7 +139,11 @@ myApp.displayMovieInfo = function (data, index) {
   $('#resultLanguage').text(myApp.pickLanguage(data[index].original_language)) //Display movie's language
   $('#resultRating').text(data[index].vote_average) //Display movie's average vote rating
   myApp.listGenres(data, index) //Display movie's genre(s)
+  $('.popcornRating').attr({  // Scale popcorn image to match rating
+    'style': `width:${data[index].vote_average * 18}px`
+  })
 }
+
 
 //Get movie data
 myApp.getMovies = function (e) {

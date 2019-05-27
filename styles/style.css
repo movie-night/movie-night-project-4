@@ -233,9 +233,9 @@ body {
   background-repeat: no-repeat;
   width: 100%;
   font-size: 1rem;
-  -webkit-transition: background-image .8s;
-  -o-transition: background-image .8s;
-  transition: background-image .8s;
+  -webkit-transition: background-image 0.8s;
+  -o-transition: background-image 0.8s;
+  transition: background-image 0.8s;
 }
 
 img {
@@ -369,6 +369,11 @@ select option {
   max-width: 1280px;
 }
 
+/*==========================================================================
+
+  NO SKIP BOX, WOULDN'T HAVE A PURPOSE
+
+==========================================================================*/
 /*  HEADER  */
 header {
   display: -webkit-box;
@@ -396,9 +401,9 @@ header h2 {
   min-width: 320px;
   position: relative;
   opacity: 1;
-  -webkit-transition: opacity .6s;
-  -o-transition: opacity .6s;
-  transition: opacity .6s;
+  -webkit-transition: opacity 0.6s;
+  -o-transition: opacity 0.6s;
+  transition: opacity 0.6s;
 }
 
 .popcornLabelImage {
@@ -720,17 +725,21 @@ label {
 .ratingBlock {
   padding-bottom: 4px;
   margin-bottom: 0;
+  position: relative;
 }
 
 .ratingBlock::before {
   content: "User Rating: ";
 }
 
-.ratingBlock::after {
-  content: "/ 10";
-  margin-left: 0.5rem;
-  font-size: 0.8rem;
-  padding-top: 2px;
+.popcornRating {
+  position: relative;
+  height: 25px;
+  left: 20px;
+  background-image: url("../assets/rating.png");
+  background-size: 180px;
+  background-repeat: no-repeat;
+  width: 180px;
 }
 
 .resultGenre,
@@ -810,18 +819,22 @@ footer {
 }
 
 @media screen and (max-width: 1280px) {
+  /*  COMMON OBJECTS  */
   .wrapper {
     max-width: 1280px;
   }
+  /*  SECOND SECTION  */
   .infoBlock {
     margin: 10px 0;
   }
 }
 
 @media screen and (max-width: 1024px) {
+  /*  COMMON OBJECTS  */
   .wrapper {
     max-width: 1024px;
   }
+  /*  HEADER  */
   header {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -845,12 +858,14 @@ footer {
     background-position-x: 50px;
     background-size: 250px;
   }
+  /*  FIRST SECTION */
   .searchForm {
     margin-top: 80px;
   }
   .submitButton {
     width: 100%;
   }
+  /*  SECOND SECTION  */
   .infoBlock,
   .movieHeaders {
     font-size: 85%;
@@ -871,9 +886,11 @@ footer {
 }
 
 @media screen and (max-width: 768px) {
+  /*  COMMON OBJECTS  */
   .wrapper {
     max-width: 768px;
   }
+  /*  HEADER  */
   header {
     min-height: 300px;
   }
@@ -907,9 +924,11 @@ footer {
     background-position-x: calc(50% + 25px);
     background-size: contain;
   }
+  /*  MAIN  */
   main {
     min-height: calc(100vh - 480px);
   }
+  /*  FIRST SECTION */
   form {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -945,6 +964,7 @@ footer {
     margin: 0;
     width: 100%;
   }
+  /*  SECOND SECTION  */
   .resultsContainer {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -990,9 +1010,15 @@ footer {
 }
 
 @media screen and (max-width: 420px) {
+  /*  COMMON OBJECTS  */
   .wrapper {
     max-width: 420px;
     min-width: 360px;
+  }
+  /*  SECOND SECTION  */
+  .popcornRating {
+    left: -150px;
+    bottom: -25px;
   }
 }
 
