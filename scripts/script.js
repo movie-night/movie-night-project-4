@@ -34,7 +34,8 @@ myApp.serverCall = function (date) {
       'api_key': myApp.key,
       'with_genres': $('#genre').val(),
       'primary_release_date.lte': date,
-      'vote_average.gte': myApp.voteAverage
+      'vote_average.gte': myApp.voteAverage,
+      'adult': 'false'
     }
   }).then(function (response) {
     myApp.movieArray = response.results //Store API results into movie array
@@ -53,7 +54,8 @@ myApp.trashyServerCall = function (date) {
       'api_key': myApp.key,
       'with_genres': $('#genre').val(),
       'primary_release_date.lte': date,
-      'vote_average.lte': myApp.voteAverage
+      'vote_average.lte': myApp.voteAverage,
+      'adult': 'false'
     }
   }).then(function (response) {
     myApp.movieArray = response.results //Store API results into movie array
