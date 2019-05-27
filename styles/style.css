@@ -402,9 +402,9 @@ header h2 {
 
 .subHeaderText {
   opacity: 1;
-  -webkit-transition: opacity .6s;
-  -o-transition: opacity .6s;
-  transition: opacity .6s;
+  -webkit-transition: opacity 0.6s;
+  -o-transition: opacity 0.6s;
+  transition: opacity 0.6s;
 }
 
 .popcornLogo {
@@ -551,12 +551,9 @@ label {
   -webkit-transform: scale(1.015);
   -ms-transform: scale(1.015);
   transform: scale(1.015);
+  background-color: #7a94ca;
   -webkit-box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
-}
-
-.resultButton {
-  width: 30%;
 }
 
 .submitButton {
@@ -790,6 +787,35 @@ label {
   border-radius: 30px;
 }
 
+.resultButton {
+  width: 30%;
+}
+
+.resultButton::after {
+  opacity: 0;
+  position: absolute;
+  font-size: 0.8em;
+  width: 220px;
+  bottom: -70px;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 15px;
+  pointer-events: none;
+  left: -20px;
+}
+
+.resultButton:hover::after {
+  opacity: 1;
+}
+
+.anotherMovie::after {
+  content: 'Hit me up with another!';
+}
+
+.newSearch::after {
+  content: 'I wanna find something else!';
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -1018,6 +1044,9 @@ footer {
   .resultButton {
     margin: 15px 15px;
     width: 100%;
+  }
+  .resultButton::after, .resultButton:hover::after {
+    display: none;
   }
 }
 

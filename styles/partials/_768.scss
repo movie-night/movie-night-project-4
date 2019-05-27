@@ -85,32 +85,43 @@
   .resultsContainer {
     flex-direction: column;
   }
+
   .poster {
     margin: 0 auto;
     box-shadow: 0 0 15px 15px rgba(0, 0, 0, 0.3);
   }
+
   .movieInfo {
     width: 100%;
     padding: 0;
     margin-top: 20px;
   }
+
   .movieHeaders {
     align-self: center;
   }
+
   .genreBlock,
   .overviewBlock {
     flex-direction: column;
   }
+
   .resultGenre {
     margin: 5px 0 0;
     align-self: flex-start;
   }
+
   .resultButtons {
     width: 95%;
     flex-wrap: wrap;
   }
+
   .resultButton {
     margin: 15px 15px;
     width: 100%;
+    &::after,
+    &:hover::after {
+      display: none;
+    }
   }
 }

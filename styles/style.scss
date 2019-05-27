@@ -148,7 +148,7 @@ select {
   NO SKIP BOX, WOULDN'T HAVE A PURPOSE
 
 ==========================================================================*/
- 
+
 /*  HEADER  */
 
 header {
@@ -166,12 +166,12 @@ header {
 }
 
 .headerText {
-  margin:0 auto;
+  margin: 0 auto;
 }
 
 .subHeaderText {
-  opacity:1;
-  transition: opacity .6s;
+  opacity: 1;
+  transition: opacity 0.6s;
 }
 
 .popcornLogo {
@@ -196,7 +196,7 @@ header {
     bottom: -60px;
     font-size: 0.8em;
     text-shadow: 0 0 10px black;
-    color: #17f;
+    color: $skyBlue;
     position: absolute;
     left: -8%;
     background: rgba(255, 255, 255, 0.1);
@@ -293,15 +293,13 @@ label {
   min-width: 200px;
   border-radius: 50px;
   color: white;
-  background-color: #17f;
+  background-color: $skyBlue;
   text-align: center;
   &:hover:not(:active) {
     transform: scale(1.015);
+    background-color: $blueFade;
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
   }
-}
-.resultButton {
-  width: 30%;
 }
 
 .submitButton {
@@ -489,6 +487,33 @@ label {
   z-index: 1;
   background-color: rgba(0, 0, 0, 0.4);
   border-radius: 30px;
+}
+
+.resultButton {
+  width: 30%;
+  &::after {
+    opacity:0;
+    position: absolute;
+    font-size: 0.8em;
+    width: 220px;
+    bottom: -70px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 15px;
+    pointer-events: none;
+    left:-20px;
+  }
+  &:hover::after {
+    opacity:1;
+  }
+}
+
+.anotherMovie::after {
+  content:'Hit me up with another!';
+}
+
+.newSearch::after {
+  content:'I wanna find something else!';
 }
 
 a {
