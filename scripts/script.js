@@ -75,6 +75,7 @@ myApp.getGenres = function () {
     for (item in response) {
       $('select').append(`<option value="${response[item]}">${item}</option>`);
     }
+    $('select').append(`<option value="null" style="display:none" selected disabled>Choose a genre</option>`);
   })
 }
 
