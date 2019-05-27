@@ -168,6 +168,11 @@ header {
   margin:0 auto;
 }
 
+.subHeaderText {
+  opacity:1;
+  transition: opacity .6s;
+}
+
 .popcornLogo {
   margin-left: 40px;
   height: 200px;

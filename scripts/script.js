@@ -195,7 +195,8 @@ myApp.sectionTransitionFull = function () {
   $('body').addClass('stopScroll');
   $('.banner').removeClass('removeBlock');
   $('.search').addClass('sectionHidden');
-  $('.popcornLogo').addClass('visiblyHidden')
+  $('.popcornLogo').addClass('visiblyHidden');
+  $('.subHeaderText').addClass('visiblyHidden');
   setTimeout(function () {
     $('header').addClass('headerMoveUp');
     $('.result').removeClass('removeBlock');
@@ -203,6 +204,7 @@ myApp.sectionTransitionFull = function () {
     $('main').addClass('expandSection');
     $('.search').removeClass('sectionHidden');
     $('.popcornLogo').addClass('removeBlock');
+    $('.subHeaderText').addClass('removeBlock');
   }, 800);
   setTimeout(function () {
     $('.banner').addClass('bannerFade');
