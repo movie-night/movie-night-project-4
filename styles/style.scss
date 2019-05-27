@@ -156,9 +156,10 @@ header {
   align-items: center;
   justify-content: space-between;
   min-height: 350px;
-  max-width: 82%;
+  max-width: 1280px;
   margin: 0 auto;
   min-width: 360px;
+  padding: 0 30px;
   h2 {
     margin: 0 auto;
   }
@@ -197,7 +198,7 @@ header {
     text-shadow: 0 0 10px black;
     color: #17f;
     position: absolute;
-    left: 50px;
+    left: -8%;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
     font-weight: 600;
