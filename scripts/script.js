@@ -26,6 +26,7 @@ myApp.start = function () {
 
 //API call to get movie data
 myApp.serverCall = function (date) {
+  console.log(date)
   $.ajax({
     url: 'https://api.themoviedb.org/3/discover/movie',
     method: 'GET',
@@ -163,7 +164,7 @@ myApp.getMovies = function (e) {
 myApp.ageCheck = function () {
   const oldYear = '1980' //Year for old movies
   const year = new Date().getFullYear() //Get current year
-  const month = new Date().getMonth() + 1 //Get current month
+  const month = ("0" + (new Date().getMonth() + 1)).slice(-2) //Get current month
   const day = new Date().getDate() //Get current day
   const todaysDate = `${year - 1}-${month}-${day}` //Create current date minus 1 year for API call
   const pastDate = `${oldYear}-${month}-${day}` //Create past date for API call
